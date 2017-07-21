@@ -131,13 +131,14 @@ class Pengguna extends CI_Controller{
 	}
 
 
+
 	function enable($id){
 		$data = array(
 			'status'=>1
 			);
 
 		$this->pengguna->ubah_pengguna($data, $id);
-		$this->session->set_flashdata('pesan','<div class="alert alert-success" id="pesan"><b>Sukses! </b>Data Pengguna berhasil dinon-aktifkan.</div>');
+		$this->session->set_flashdata('pesan','<div class="alert alert-success" id="pesan"><b>Sukses! </b>Data Pengguna berhasil diaktifkan.</div>');
 			
 			redirect('pengguna');
 	}
@@ -145,8 +146,8 @@ class Pengguna extends CI_Controller{
 	function hapus($id){
 
 		$this->pengguna->hapus_pengguna($id);
-		$this->session->set_flashdata('pesan','<div class="alert alert-success" id="pesan"><b>Sukses! </b>Data Pengguna berhasil dihapus.</div>');
 			
+		$this->session->set_flashdata('pesan','<div class="alert alert-success" id="pesan"><b>Sukses! </b>Data Pengguna berhasil dihapus.</div>');
 			redirect('pengguna');
 	}
 

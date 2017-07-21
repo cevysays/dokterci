@@ -3,6 +3,28 @@
 	<head>
 		<title>Cetak Laporan Pasien</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/cetak.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/cetak.css">
+   <style type="text/css">
+<!--
+.style2 {
+  font-size: 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+.style14 {font-family: "Courier New", Courier, monospace; font-size: 13px; }
+.style15 {font-size: 12px}
+-->
+tr th{
+  font-family: "Courier New", Courier, monospace; font-size: 13px; font-weight: bold; 
+
+}
+
+tr td{
+  font-family: "Courier New", Courier, monospace; font-size: 12px; 
+
+}
+</style>
 	</head>
 	<body>
 		

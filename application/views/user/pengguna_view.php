@@ -66,17 +66,18 @@
 
 		    						echo '&nbsp;'. anchor('pengguna/disable/'.$row->id,'<i class="glyphicon glyphicon-remove"></i>',array(
 		    							'class'=>'btn btn-sm btn-danger',
-		    							'onclick'=>"return confirm('Yakin mau disable pengguna ini?')"
+		    							'onclick'=>"return confirm('Apakah yakin ingin disable pengguna ini?')"
 		    						));
 	    						}else{
 	    							echo '&nbsp;'. anchor('pengguna/enable/'.$row->id,'<i class="glyphicon glyphicon-ok"></i>',array(
 		    							'class'=>'btn btn-sm btn-success',
-		    							'onclick'=>"return confirm('Yakin mau mengaktifkan pengguna ini?')"
+		    							'onclick'=>"return confirm('Apakah yakin ingin mengaktifkan pengguna ini?')"
 		    						));
 	    						}
 
 	    						echo '&nbsp;'.anchor('pengguna/hapus/'.$row->id,'<i class="glyphicon glyphicon-trash"></i>',array(
-	    							'class'=>'btn btn-sm btn-danger'
+	    							'class'=>'btn btn-sm btn-danger',
+	    							'onclick'=>"return confirm('Apakah yakin ingin menghapus pengguna ini?')"
 	    						));
 
 	    						?>

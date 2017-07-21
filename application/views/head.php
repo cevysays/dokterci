@@ -100,7 +100,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laporan <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                       <li> <?php echo anchor('laporan','Laporan Pasien Per Periode');?></li>
-                      <li> <?php echo anchor('pasien/cetak','Laporan Pasien Keseluruhan');?></li>
+                      <li> <?php echo anchor('pasien/cetak','Laporan Pasien Keseluruhan',['target'=>'_blank']);?></li>
                       <li> <?php echo anchor('terapi/history','Laporan History Pemeriksaan Pasien');?></li>
                       
                     </ul>

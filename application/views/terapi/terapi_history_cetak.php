@@ -26,6 +26,7 @@ tr td{
 </head>
 
 <body>
+<br>
 <table width="700" border="0" cellspacing="0" cellpadding="2" align="center">
   <tr>
     <b><center>LAPORAN PEMERIKSAAN DOKTER</center></b>

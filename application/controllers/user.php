@@ -30,6 +30,7 @@ class User extends CI_Controller{
 				$this->user->update_user($data, $user);
 				redirect('auth/logout');
 				$this->session->set_flashdata('pesan', '<div id="pesan" class="alert alert-success"><b>Sukses! </b> Password berhasil diubah.</div>');
+
 			}
 
 		}else{
