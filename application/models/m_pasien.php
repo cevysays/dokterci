@@ -12,6 +12,8 @@ class M_pasien extends CI_Model{
 			'id',
 			'namalengkap',
 			'umur',
+			'riwayat',
+			'rm_upload',
 			'alamat',
 			"DATE_FORMAT(lastinput,'%d-%m-%Y') as tanggal"
 			), FALSE);

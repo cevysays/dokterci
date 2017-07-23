@@ -24,6 +24,8 @@
 						<th>Nama Pasien</th>
 						<th>Alamat</th>
 						<th>Umur</th>
+						<th>Riwayat Penyakit</th>
+						<th>Berkas Rekam Medis</th>
 						<th>Tgl. Register</th>
 						<th>Kelola</th>
 					</tr>
@@ -32,6 +34,7 @@
 				<?php if(empty($query)){
 					echo '<tr><td colspan="6">Data tidak tersedia.</td></tr>';
 					}else{
+						
 						foreach($query as $row) :
 						?>
 					<tr> 
@@ -39,6 +42,13 @@
 						<td><?php echo $row->namalengkap;?></td>
 						<td><?php echo $row->alamat;?></td>
 						<td><?php echo $row->umur;?></td>
+						<td><?php echo $row->riwayat;?></td>
+						<td>
+						<?php if($row->rm_upload!=''): ?>
+						<a class="fancyimg" href="<?php echo base_url();?>assets/img/pasien/<?php echo $row->rm_upload;?>"><img src="<?php echo base_url();?>assets/img/pasien/<?php echo $row->rm_upload;?>" alt="" height="50px" width="50px"/></a>
+					<?php endif;?>
+
+						</td>
 						<td><?php echo $row->tanggal;?></td>
 						<td><?php echo anchor('pasien/ubah/'.$row->id,'<i class="glyphicon glyphicon-pencil"></i>',array('class'=>'btn btn-sm btn-info', 'title'=>'Ubah Pasien'));?>
 						<?php echo anchor('pasien/hapus/'.$row->id,'<i class="glyphicon glyphicon-trash"></i>',array('class'=>'btn btn-sm btn-danger','title'=>'Hapus Pasien','onclick'=>"return confirm('Yakin mau hapus data ini?')"));?>
