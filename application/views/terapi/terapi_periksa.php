@@ -190,15 +190,22 @@
 			  	<div role="tabpanel" class="tab-pane" id="terapi">
 			  		<table class="table">
 			  			<tr>
-			  				<th>Nama Obat</th>
+			  				<!--<th>Nama Obat</th>
 			  				<th>Anjuran Minum (ex: 3X1)</th>
-			  				<th>Jumlah</th>
+			  				<th>Jumlah</th>-->
+			  				<th>Upload Resep Dokter</th>
 			  			</tr>
 			  			<tr>
-			  				<th><?php echo form_input(array('id'=>'formobat','class'=>'form-control'));?></th>
+			  				<!--<th><?php echo form_input(array('id'=>'formobat','class'=>'form-control'));?></th>
 			  				<th><?php echo form_input(array('id'=>'formetiket','class'=>'form-control'));?></th>
 			  				<th><?php echo form_input(array('id'=>'formjml','class'=>'form-control'));?></th>
-			  				<th><?php echo form_submit(array('type'=>'button','id'=>'simpanterapi','value'=>'Tambah','class'=>'btn btn-info'));?></th>
+			  				<th><?php echo form_submit(array('type'=>'button','id'=>'simpanterapi','value'=>'Tambah','class'=>'btn btn-info'));?></th>-->
+
+			  				<th>
+									<input type="file" class="filestyle" name="rm_upload">
+
+								</th>
+
 			  			</tr>
 			  		</table>
 			  		<div id="dataterapi"></div>

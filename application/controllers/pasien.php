@@ -120,7 +120,8 @@ class Pasien extends CI_Controller{
     				'umur'=>$umur,
     				'alamat'=>$alamat,
     				'telp'=>$telp,
-    				'riwayat'=>$this->input->post('riwayat')
+    				'riwayat'=>$this->input->post('riwayat'),
+                    'rm_upload'=>$file_image_poto['file_name']
     				);
 
     			$this->pasien->update_pasien($data, $id);
