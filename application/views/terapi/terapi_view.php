@@ -17,6 +17,7 @@
 						<th>Nama Pasien</th>
 						<th>Alamat</th>
 						<th>Umur</th>
+						<th>Divisi</th>
 						<th>Aksi</th>
 					</tr>
 				</thead>
@@ -34,6 +35,7 @@
 						<td><?php echo $row->namalengkap;?></td>
 						<td><?php echo $row->alamat;?></td>
 						<td><?php echo $row->umur;?> Th</td>
+						<td><?php echo "Dokter Umum";?></td> <!--meh dimasukin db atau cuma flag aja?-->
 						<td><?php echo anchor('terapi/periksa/'.$row->no_reg.'/'.$row->id,'
 							<i class="glyphicon glyphicon-search"></i> Mulai Periksa',array(
 							'class'=>'btn btn-sm btn-success'
