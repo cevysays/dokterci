@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 19 Jun 2015 pada 17.13
--- Versi Server: 5.6.21
--- PHP Version: 5.5.19
+-- Host: localhost
+-- Generation Time: Nov 02, 2017 at 05:06 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `dokterci`
@@ -23,146 +25,204 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `diagnosa`
+-- Table structure for table `diagnosa`
 --
 
-CREATE TABLE IF NOT EXISTS `diagnosa` (
-`id` int(11) NOT NULL,
+CREATE TABLE `diagnosa` (
+  `id` int(11) NOT NULL,
   `no_reg` varchar(20) NOT NULL,
-  `pasien_id` int(6) unsigned zerofill NOT NULL,
+  `pasien_id` int(6) UNSIGNED ZEROFILL NOT NULL,
   `diagnosa` varchar(100) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `diagnosa`
+-- Dumping data for table `diagnosa`
 --
 
 INSERT INTO `diagnosa` (`id`, `no_reg`, `pasien_id`, `diagnosa`) VALUES
-(2, 'REG000001', 000012, 'sakit perut'),
-(3, 'REG000001', 000012, 'Diare'),
-(4, 'REG000004', 000011, 'punggung nyeri'),
-(5, 'REG000004', 000011, 'punggung sakit dan susah jalan');
+(1, 'REG000001', 000001, 'Asam Urat'),
+(2, 'REG000002', 000008, 'Influenza'),
+(3, 'REG000002', 000008, 'Asma'),
+(8, '1', 000001, 'Influenza'),
+(9, '7', 000023, 'coba'),
+(10, '7', 000023, 'kepo'),
+(11, '7', 000023, 'ads'),
+(12, '7', 000023, 'naga'),
+(13, '7', 000023, 'makan malam'),
+(14, '7', 000023, 'fdsf'),
+(15, '7', 000023, 'gd'),
+(16, '8', 000014, 'baru'),
+(18, '8', 000014, 'baru lagi'),
+(19, '9', 000024, 'typus');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pasien`
+-- Table structure for table `master_diagnosa`
 --
 
-CREATE TABLE IF NOT EXISTS `pasien` (
-`id` int(6) unsigned zerofill NOT NULL,
+CREATE TABLE `master_diagnosa` (
+  `icd_diagnosa` varchar(255) NOT NULL,
+  `nama_penyakit` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `master_diagnosa`
+--
+
+INSERT INTO `master_diagnosa` (`icd_diagnosa`, `nama_penyakit`) VALUES
+('lul', 'lul');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_tindakan`
+--
+
+CREATE TABLE `master_tindakan` (
+  `icd_tindakan` varchar(255) NOT NULL,
+  `tindakan` varchar(255) NOT NULL,
+  `biaya` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pasien`
+--
+
+CREATE TABLE `pasien` (
+  `id` int(6) UNSIGNED ZEROFILL NOT NULL,
   `namalengkap` varchar(250) NOT NULL,
   `alamat` text NOT NULL,
   `umur` tinyint(2) NOT NULL,
   `telp` varchar(30) NOT NULL,
+  `riwayat` text NOT NULL,
+  `rm_upload` varchar(250) NOT NULL,
   `lastinput` datetime NOT NULL,
   `tampil` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pasien`
+-- Dumping data for table `pasien`
 --
 
-INSERT INTO `pasien` (`id`, `namalengkap`, `alamat`, `umur`, `telp`, `lastinput`, `tampil`) VALUES
-(000002, 'Safira Safilia', 'Desa Kemantran Kabupaten Tegal', 17, '0283123456', '2014-11-21 03:25:23', 0),
-(000003, 'Anastasia Cyberella', 'Jl. Kalimantan 56 Gang Gado gado', 23, '08122334566', '2014-08-20 01:02:29', 1),
-(000004, 'Mario Mandzukic', 'Kroasia', 30, '-', '2014-08-20 06:56:27', 1),
-(000005, 'Raditya Dika', 'Jl. Mawar Melati Indah No. 98 Kota Slawi', 27, '0283123456', '2014-08-25 12:24:03', 1),
-(000006, 'Slamet riyadi bin kartasasmidja', 'Ds Pagongan Kabupaten Tegal', 30, '1234567890', '2014-08-25 12:24:33', 1),
-(000007, 'Ana Ivanovic', 'Ds. Pepedan RT 09 RW 12 Kabupaten Tegal', 23, '-', '2014-08-25 12:25:06', 1),
-(000008, 'Udin Komarudin Bin Edi Samudja', 'Jl. Ketilang No 15 RT 06 RW 11 Randugunting Kota Tegal', 45, '-', '2014-08-25 12:25:48', 1),
-(000009, 'Jaka', 'Bandung', 1, '1234555555', '2014-11-07 10:40:36', 0),
-(000010, 'Dul Gepuk, SH', 'Pagedangan Kab Tegal', 34, '0283-3456789', '2015-01-26 21:57:51', 1),
-(000011, 'Dul Joni', 'Ds. Kedokan Sayang RT 06 RW 12 Kab Tegal', 23, '08134444578', '2015-01-26 21:58:57', 1),
-(000012, 'Dul Gepak', 'Tegalwangi Kab Tegal', 32, '-', '2015-01-26 22:08:56', 1),
-(000013, 'ahmad bastiar', 'jogja', 23, '087738121245', '2015-06-17 11:53:22', 1);
+INSERT INTO `pasien` (`id`, `namalengkap`, `alamat`, `umur`, `telp`, `riwayat`, `rm_upload`, `lastinput`, `tampil`) VALUES
+(000001, 'Pranoto', 'Karang Pandes, Wedi', 49, '-', '', '', '2017-07-12 06:08:52', 1),
+(000002, 'Tyas Wahyu', 'Blok O, Janti', 38, '-', '', '', '2017-07-12 06:10:32', 1),
+(000003, 'Anjar Sukmono', 'Desa Tlutup,', 28, '(0295) 471530', '', '', '2017-07-12 06:12:17', 1),
+(000004, 'Nahrul A', 'Bendogantungan, Klaten', 56, '-', '', '', '2017-07-12 06:14:32', 1),
+(000005, 'Ahmad Karim', 'Jalan Sambisari, Dusun Sambisari, Condongcatur Jogja', 34, '-', '', '', '2017-07-12 06:18:23', 1),
+(000006, 'Umi Hidayati', 'Desa Bakaran Wetan, Juwana, Pati', 34, '087153636567', '', '', '2017-07-12 06:19:55', 1),
+(000007, 'Suyono', 'Desa Bakaran Wetan, RT 1 / RW 1 Juwana Pati', 40, '085283475098', '', '', '2017-07-12 06:22:36', 1),
+(000008, 'Darsono Aji', 'Karangpandes, Wedi, Klaten', 62, '08783454698', '', '', '2017-07-12 06:25:47', 1),
+(000009, 'Sukardi', 'Jalan Nusa Indah No 1, Condong Catur, DIY', 69, '081235978648', '', '', '2017-07-12 06:26:43', 1),
+(000010, 'Haryanti', 'Gang megatruh, Kocoran, Karangwuni', 47, '081286735459', '', '', '2017-07-12 06:28:58', 1),
+(000011, 'Ayu Hartati', 'Desa Bajomulyo, Juwana, Pati', 32, '0899747485739', '', '', '2017-07-12 06:29:34', 1),
+(000012, 'Warsito Angga', 'Desa Bendar, Kecamatan Juwana Pati', 29, '0838765283947', '', '', '2017-07-12 06:30:57', 1),
+(000013, 'Angga Prasteyo', 'Karangwuni Blok F, Sleman, Jogja', 39, '089973726334', '', '', '2017-07-12 06:32:20', 1),
+(000014, 'Romli Yahya', 'Bendogantungan, Klaten', 33, '0854874387', '', '', '2017-07-12 06:36:04', 1),
+(000015, 'Taufik Firmansyah', 'Desa Tlutup, Juwana, Pati', 30, '087827653889', '', '', '2017-07-12 06:37:06', 1),
+(000016, 'Harsanto Mulyo', 'Palur, Solo', 45, '085328874987', '', '', '2017-07-12 06:41:53', 1),
+(000017, 'Widhi Aryo', 'Blok O Janti', 30, '081226748565', '', '', '2017-07-12 06:46:17', 1),
+(000018, 'Sulistyo Adi', 'Desa Dukutalit, Juwana, Pati', 46, '085764898487', '', '', '2017-07-12 06:47:37', 1),
+(000019, 'Singgih', 'Bendogantungan, Klaten', 82, '-', '', '', '2017-07-12 06:49:14', 1),
+(000020, 'Suwarno', 'Wedi, Klaten', 75, '-', '', '', '2017-07-12 06:50:07', 1),
+(000021, 'Harsanti Sulis', 'Desa Bakaran Kulon, Juwana, Pati', 47, '0812987490868', '', '', '2017-07-12 06:51:13', 1),
+(000022, 'Bayu', 'Bendogantungan, Klaten', 35, '089923486584', '', '', '2017-07-12 10:42:21', 1),
+(000023, 'Adi Saputro W', 'Jalan HOS Cokroaminoto', 32, '0878543624223', '', '', '2017-07-12 04:44:30', 1),
+(000043, 'baru', 'baru', 12, '0', 'baru', 'file_baru_1503821358.', '2017-08-27 10:09:18', 1),
+(000044, 'cicim', 'godean', 23, '081226748565', 'boyok', 'file_cicim_1507095892.png', '2017-10-04 07:44:52', 1),
+(000042, 's', 's', 12, '12', 'ss', 'file_s_1500839957.jpg', '2017-07-23 21:59:17', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `registrasi`
+-- Table structure for table `registrasi`
 --
 
-CREATE TABLE IF NOT EXISTS `registrasi` (
-`id` int(11) NOT NULL,
-  `no_reg` varchar(20) NOT NULL,
-  `pasien_id` int(6) unsigned zerofill NOT NULL,
+CREATE TABLE `registrasi` (
+  `id` int(11) NOT NULL,
+  `no_reg` int(11) NOT NULL,
+  `pasien_id` int(6) UNSIGNED ZEROFILL NOT NULL,
   `tgl_reg` date NOT NULL,
   `status` tinyint(1) NOT NULL,
   `keluhan` text NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `registrasi`
+-- Dumping data for table `registrasi`
 --
 
 INSERT INTO `registrasi` (`id`, `no_reg`, `pasien_id`, `tgl_reg`, `status`, `keluhan`) VALUES
-(1, 'REG000001', 000012, '2015-03-14', 1, 'Cacingan'),
-(2, 'REG000002', 000010, '2015-03-14', 1, 'Sakit kepala parah\r\n'),
-(3, 'REG000003', 000012, '2015-06-11', 0, 'sakit kepala migran '),
-(4, 'REG000004', 000011, '2015-06-11', 1, 'hkhk'),
-(5, 'REG000005', 000012, '2015-06-17', 0, 'sakit  kepala'),
-(6, 'REG000006', 000010, '2015-06-17', 0, 'knkn'),
-(7, 'REG000007', 000013, '2015-06-17', 0, 'sakit punggung'),
-(8, 'REG000008', 000013, '2015-06-17', 0, 'sakit kepala'),
-(9, 'REG000009', 000013, '2015-06-19', 0, 'flue,pilek,dan hidung gatel'),
-(10, 'REG000010', 000013, '2015-06-19', 0, 'sd');
+(2, 1, 000001, '2017-07-12', 1, 'Pusing, mual, dan flue'),
+(12, 6, 000019, '2017-07-14', 0, 'dsfsdf'),
+(11, 5, 000019, '2017-07-14', 0, 'fasdfsdf'),
+(10, 4, 000023, '2017-07-14', 0, 'empat to'),
+(8, 2, 000023, '2017-07-14', 0, 'rewr'),
+(9, 3, 000023, '2017-07-14', 0, 'vdgdf'),
+(13, 7, 000023, '2017-07-16', 1, 'test'),
+(14, 8, 000014, '2017-07-16', 1, 'baru'),
+(15, 9, 000024, '2017-07-19', 1, 'pusing'),
+(16, 10, 000043, '2017-08-27', 0, 'keluhann baru'),
+(17, 11, 000044, '2017-10-04', 0, 'boyok'),
+(18, 12, 000044, '2017-10-04', 0, 'boyok');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `terapi`
+-- Table structure for table `terapi`
 --
 
-CREATE TABLE IF NOT EXISTS `terapi` (
-`id` int(11) NOT NULL,
+CREATE TABLE `terapi` (
+  `id` int(11) NOT NULL,
   `etiket` varchar(255) NOT NULL,
   `tgl` date NOT NULL,
   `no_reg` varchar(20) NOT NULL,
   `no_rm` varchar(20) NOT NULL,
   `terapi` varchar(250) NOT NULL,
-  `jml` int(3) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `jml` int(3) NOT NULL,
+  `resep` varchar(250) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `terapi`
+-- Dumping data for table `terapi`
 --
 
-INSERT INTO `terapi` (`id`, `etiket`, `tgl`, `no_reg`, `no_rm`, `terapi`, `jml`) VALUES
-(1, '3 x 1 sehari sebelum makan', '2015-03-17', 'REG000001', '000012', 'Valisanbe', 10),
-(2, '2 x 1 hari sesudah makan', '2015-03-17', 'REG000001', '000012', 'Mefinal', 20),
-(3, '1', '2015-06-17', 'REG000004', '000011', 'dextoi', 3);
+INSERT INTO `terapi` (`id`, `etiket`, `tgl`, `no_reg`, `no_rm`, `terapi`, `jml`, `resep`) VALUES
+(1, '3x1 Setelah makan', '2017-07-16', '8', '000014', 'baru lagi', 2, ''),
+(2, '3x1 sehari', '2017-07-19', '9', '000024', 'obat typus', 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tindakan`
+-- Table structure for table `tindakan`
 --
 
-CREATE TABLE IF NOT EXISTS `tindakan` (
-`id` int(11) NOT NULL,
+CREATE TABLE `tindakan` (
+  `id` int(11) NOT NULL,
   `no_reg` varchar(20) NOT NULL,
-  `pasien_id` int(6) unsigned zerofill NOT NULL,
+  `pasien_id` int(6) UNSIGNED ZEROFILL NOT NULL,
   `tindakan` varchar(100) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tindakan`
+-- Dumping data for table `tindakan`
 --
 
 INSERT INTO `tindakan` (`id`, `no_reg`, `pasien_id`, `tindakan`) VALUES
-(1, 'REG000001', 000012, 'Injeksi Rutin'),
-(2, 'REG000001', 000012, 'Operasi'),
-(3, 'REG000004', 000011, 'olahraga setiap hari');
+(1, '7', 000023, 'coba'),
+(2, '8', 000014, 'baru lagi'),
+(3, '9', 000024, 'perikasa, konsultasi');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
   `username` varchar(128) DEFAULT NULL,
   `password` varchar(128) DEFAULT NULL,
   `namalengkap` varchar(250) NOT NULL,
@@ -173,26 +233,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `tgl_login` datetime NOT NULL,
   `ip_login` varchar(50) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `namalengkap`, `email`, `role`, `created`, `modified`, `tgl_login`, `ip_login`, `status`) VALUES
-(6, 'dokter', 'e807f1fcf82d132f9bb018ca6738a19f', 'Dr. Sebastian GiovincO', 'dokter@gmail.com', 'dokter', '2014-11-07 10:34:35', '2014-11-07 10:34:35', '2015-03-09 03:00:33', '::1', 0),
-(3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Slenteng Jos', 'admin@admin.com', 'admin', '2014-08-23 19:12:15', '2014-08-23 19:12:15', '2015-06-19 11:40:18', '::1', 1),
-(5, 'dimasedu', '827ccb0eea8a706c4c34a16891f84e7b', 'Dimas Edu', 'edudimas1@gmail.com', 'kasir', '2014-11-07 10:33:46', '2014-11-07 10:33:46', '0000-00-00 00:00:00', '', 1),
-(7, 'jayeng', '827ccb0eea8a706c4c34a16891f84e7b', 'Papi Jay', NULL, 'admin', NULL, NULL, '0000-00-00 00:00:00', '', 1),
-(8, 'rhesaadinegara', 'e36bd0e55de96dc003b01e75a3d26f99', 'Rhesa Adinegara', NULL, 'admin', NULL, NULL, '2015-05-02 02:32:06', '127.0.0.1', 1),
-(9, 'rhesaadinegara', 'e36bd0e55de96dc003b01e75a3d26f99', 'Rhesa Adinegara', NULL, 'dokter', NULL, NULL, '2015-05-02 02:32:06', '127.0.0.1', 1),
-(10, 'rhesaadinegara', 'd78ac49bbdc8d078d4ca1bf25169893e', 'Rhesa Adinegara', NULL, 'kasir', NULL, NULL, '2015-05-02 02:32:06', '127.0.0.1', 1),
-(20, 'bastiar', 'bastiar', 'ahmad bastiar', 'bas@gmail.com', 'admin', '2015-06-06 00:00:00', NULL, '0000-00-00 00:00:00', '1234', 1),
-(23, 'bastiar123', '1234567890', 'bas', 'bas@gmail.com', 'admin', '2015-06-06 06:24:42', '2015-06-06 06:24:42', '2015-06-06 06:24:42', '192.168.201.1', 1),
-(24, 'nsjmcs', 'c8c9dfa8dbe4faad99d9e6a9ea3144da', 'ahmad bastiar', NULL, 'kasir', NULL, NULL, '0000-00-00 00:00:00', '', 1),
-(25, 'nsjmdokter', 'dd7bc7eb131502068fd1a25eca4d4272', 'ahmad bastiar', NULL, 'dokter', NULL, NULL, '0000-00-00 00:00:00', '', 1),
-(26, 'kasir', 'de28f8f7998f23ab4194b51a6029416f', 'kasir bas', NULL, 'admin', NULL, NULL, '2015-06-17 01:07:57', '::1', 1),
-(27, 'kasirq', 'd130cbc5bca12e35d1284fa307dc7ca0', 'rehsa rahardian', NULL, 'kasir', NULL, NULL, '0000-00-00 00:00:00', '', 1);
+(15, 'cevyyufindra', 'afb91ef692fd08c445e8cb1bab2ccf9c', 'Cevy Yufindra', NULL, 'petugas', NULL, NULL, '2017-11-02 05:05:37', '::1', 1),
+(14, 'agunghartoko', '5ec2e91731b167db36a1daa68ac26332', 'dr. Agung Hartoko, S.Ked', NULL, 'dokter', NULL, NULL, '2017-11-02 04:42:59', '::1', 1),
+(11, 'cevyyufindra', '21232f297a57a5a743894a0e4a801fc3', 'Cevy Yufindra', NULL, 'admin', NULL, NULL, '2017-11-02 05:05:37', '::1', 1),
+(17, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', NULL, 'admin', NULL, NULL, '2017-10-04 10:36:48', '::1', 1),
+(18, 'sitisundari', '9e11c1469248e4f68a1088802bb476ed', 'dr. Hj. Siti Sundari, SpM., Mkes', NULL, 'dokter', NULL, NULL, '2017-07-12 09:56:52', '::1', 1),
+(21, 'penggunabaru', 'f6d6b705b589db67d48c7956573061ea', 'penggunabaru', NULL, 'petugas', NULL, NULL, '0000-00-00 00:00:00', '', 1);
 
 --
 -- Indexes for dumped tables
@@ -202,37 +255,50 @@ INSERT INTO `users` (`id`, `username`, `password`, `namalengkap`, `email`, `role
 -- Indexes for table `diagnosa`
 --
 ALTER TABLE `diagnosa`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `master_diagnosa`
+--
+ALTER TABLE `master_diagnosa`
+  ADD PRIMARY KEY (`icd_diagnosa`);
+
+--
+-- Indexes for table `master_tindakan`
+--
+ALTER TABLE `master_tindakan`
+  ADD PRIMARY KEY (`icd_tindakan`);
 
 --
 -- Indexes for table `pasien`
 --
 ALTER TABLE `pasien`
- ADD PRIMARY KEY (`id`), ADD KEY `nama_lengkap` (`namalengkap`(10));
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nama_lengkap` (`namalengkap`(10));
 
 --
 -- Indexes for table `registrasi`
 --
 ALTER TABLE `registrasi`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `noreg` (`no_reg`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `terapi`
 --
 ALTER TABLE `terapi`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tindakan`
 --
 ALTER TABLE `tindakan`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -242,32 +308,33 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `diagnosa`
 --
 ALTER TABLE `diagnosa`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-MODIFY `id` int(6) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
+  MODIFY `id` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `registrasi`
 --
 ALTER TABLE `registrasi`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `terapi`
 --
 ALTER TABLE `terapi`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tindakan`
 --
 ALTER TABLE `tindakan`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
