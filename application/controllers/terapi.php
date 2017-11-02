@@ -8,6 +8,8 @@ class Terapi extends CI_Controller{
 		$this->load->model('m_terapi','terapi');
 		$this->load->model('m_registrasi', 'registrasi');
 		$this->load->model('m_pasien', 'pasien');
+		$this->load->model('m_pengguna', 'pengguna');
+
 		//$this->load->model('m_diagnosa', 'diagnosa');
 	}
 
@@ -23,7 +25,7 @@ class Terapi extends CI_Controller{
 
 	function periksa($noreg, $nomerekammedis){
 
-			
+
 			//print_r($noreg);
 			//print_r($nomerekammedis);exit();
 
@@ -33,15 +35,16 @@ class Terapi extends CI_Controller{
 
 				$this->terapi->selesai_periksa($data, $noreg);
 				redirect('terapi/cetak/'.$noreg.'/'.$nomerekammedis);
-				
+
 			}
 				$data['pasien'] = $this->terapi->ambil_data_pasien($nomerekammedis,$noreg);
+				$data['dokter'] = $this->pengguna->get_users_by_role('dokter');
 
 				$this->load->view('head');
 				$this->load->view('terapi/terapi_periksa', $data);
 				$this->load->view('foot');
-			
-	
+
+
 	}
 
 
@@ -90,7 +93,7 @@ class Terapi extends CI_Controller{
     	$this->load->view('foot');
 	}
 
-	
+
 	function cetakhistory($pasien){
 
 	/*	$data['pasien'] = $this->terapi->ambil_data_pasien($pasien);
@@ -99,7 +102,7 @@ class Terapi extends CI_Controller{
 		$data['tindakan'] = $this->terapi->tampil_history_tindakan($pasien);
 		$data['terapi'] = $this->terapi->tampil_history_terapi($pasien);
 		$this->load->view('terapi/terapi_history_cetak', $data);*/
-		
+
 		$data['pasien'] = $this->terapi->ambil_data_pasien($pasien);
 		$data['keluhan'] = $this->terapi->tampil_history_keluhan($pasien);
 		$data['diagnosa'] = $this->terapi->tampil_history_diagnosa($pasien);
@@ -110,13 +113,13 @@ class Terapi extends CI_Controller{
     	$this->load->view('terapi/terapi_history_cetak', $data);
     	//$this->load->view('foot');
     }
-    	
+
 
 
 	/**
 	* =================================
 	* @@ Function simpan diagnosa jquery
-	* 
+	*
 	**/
 	function tambahdiagnosa(){
 		$diagnosa = $this->input->post('diagnosa');
@@ -148,7 +151,7 @@ class Terapi extends CI_Controller{
 	/**
 	* =================================
 	* @@ Function simpan tindakan jquery
-	* 
+	*
 	**/
 	function tambahtindakan(){
 		$tindakan = $this->input->post('tindakan');
@@ -179,7 +182,7 @@ class Terapi extends CI_Controller{
 	/**
 	* =================================
 	* @@ Function simpan terapi jquery
-	* 
+	*
 	**/
 	function tambahterapi(){
 		$obat = $this->input->post('obat');

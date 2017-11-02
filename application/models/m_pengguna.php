@@ -1,7 +1,7 @@
 <?php if(!defined('BASEPATH')) exit('Keluar dari sistem');
 
 class M_pengguna extends CI_Model{
-	
+
 	function __construct(){
 		parent::__construct();
 	}
@@ -38,5 +38,17 @@ class M_pengguna extends CI_Model{
 		$this->db->where('id', $id);
 		$this->db->delete('users');
 	}
+
+	/**
+	 * [get_user_by_role]
+	 * @param  [string] $role (petugas,dokter,admin)
+	 * @return [array]
+	 */
+	function get_users_by_role($role){
+
+		$this->db->order_by('id','DESC');
+		$query = $this->db->get_where('users', array('role' => $role));
+		return $query->result();
+	}
 //end of class
-}	 
+}

@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	
+
 	$(document).ready(function(){
 
 		$('#simpandiagnosa').click(function(){
@@ -129,32 +129,35 @@
 							<th>:</th>
 							<th><?php echo $pasien->namalengkap;?></th>
 						</tr>
-						<tr>	
+						<tr>
 							<th>Umur</th>
 							<th>:</th>
 							<th><?php echo $pasien->umur;?> Th</th>
 						</tr>
-						<tr>	
+						<tr>
 							<th>Alamat</th>
 							<th>:</th>
 							<th><?php echo $pasien->alamat;?></th>
 						</tr>
-						<tr>	
+						<tr>
 							<th>Keluhan</th>
 							<th>:</th>
 							<th>
 								<?php echo $pasien->keluhan;?>
 							</th>
 						</tr>
-						<tr>	
+						<tr>
 							<th>Diperiksa Oleh</th>
 							<th>:</th>
 							<th>
 								<div class="form-group">
 									<div class="col-lg-12">
 										<select name="tampil" class="form-control">
-											<option value="$dokter->agunghartoko">Agung</option>
-											<option value="$dokter->sitisundari">Siti</option> 
+											<?php if ($dokter): ?>
+												<?php foreach ($dokter as $d): ?>
+													<option value="<?php echo $d->id; ?>"><?php echo $d->namalengkap; ?></option>
+												<?php endforeach; ?>
+											<?php endif; ?>
 										</select>
 									</div>
 								</div>
@@ -198,7 +201,7 @@
 										<th><?php echo form_input(array('id'=>'formtindakan','class'=>'form-control'));?></th>
 										<th><?php echo form_submit(array('type'=>'button','id'=>'simpantindakan','value'=>'Tambah','class'=>'btn btn-info'));?></th>
 									</tr>
-								</table>			  		
+								</table>
 								<div id="datatindakan"></div>
 							</div>
 							<div role="tabpanel" class="tab-pane" id="terapi">
@@ -227,12 +230,12 @@
 			  </div>
 
 			  <div class="well">
-			  	<?php 
+			  	<?php
 			  	echo form_submit(array('name'=>'submit','id'=>'submit','class'=>'btn btn-success','value'=>'Selesai Pemeriksaan',))
 			  	?>
 			  </div>
 
-			</div>		  
+			</div>
 		</div>
 	</div>
 </div>
