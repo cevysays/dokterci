@@ -108,88 +108,102 @@
 <div class="container">
 	<div class="row">
 
-	<div class="col-md-12 col-sm-12 col-lg-12">
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-	    <h3 class="panel-title"><b>Pemeriksaan Pasien</b></h3>
-	  </div>
-	  <div class="panel-body">
-	  	<?php echo form_open('terapi/periksa/'.$pasien->no_reg.'/'.$pasien->id,['target'=>'_blank']);?>
-	  	<input type="hidden" id="idreg" value="<?php echo $pasien->no_reg;?>">
-	  	<input type="hidden" id="pasien" value="<?php echo $pasien->id;?>">
-		  <table class="table table-striped">
-		  	<tr>
-		  		<th width="10%">No. Daftar</th>
-		  		<th width="5%">:</th>
-		  		<th width="55%"><?php echo $pasien->no_reg;?>
-		  		</th>
-		  	</tr>
-		  	<tr>
-		  		<th>Nama Pasien</th>
-		  		<th>:</th>
-		  		<th><?php echo $pasien->namalengkap;?></th>
-		  	</tr>
-		  	<tr>	
-		  		<th>Umur</th>
-		  		<th>:</th>
-		  		<th><?php echo $pasien->umur;?> Th</th>
-		  	</tr>
-		  	<tr>	
-		  		<th>Alamat</th>
-		  		<th>:</th>
-		  		<th><?php echo $pasien->alamat;?></th>
-		  	</tr>
-		  	<tr>	
-		  		<th>Keluhan</th>
-		  		<th>:</th>
-		  		<th>
-		  			<?php echo $pasien->keluhan;?>
-		  		</th>
-		  	</tr>
-		  </table>
-		  <h4>Data Medik Pasien</h4>
-		  <hr>
-		  <div id="notif" class="alert alert-danger" style="display:none;"></div>
-		  <div role="tabpanel">
-		  	<ul class="nav nav-tabs" role="tablist">
-		  		<li role="periksa" class="active">
-		  			<a href="#diagnosa" aria-controls="diagnosa" role="tab" data-toggle="tab">Diagnosa</a>
-		  		</li>
-		  		<li role="periksa">
-		  			<a href="#tindakan" aria-controls="tindakan" role="tab" data-toggle="tab">Tindakan</a>
-		  		</li>
-		  		<li role="periksa">
-		  			<a href="#terapi" aria-controls="terapi" role="tab" data-toggle="tab">Terapi</a>
-		  		</li>
-		  	</ul>
-		  	<div class="tab-content">
-			  	<div role="tabpanel" class="tab-pane active" id="diagnosa">
-			  		<table class="table">
-			  			<tr>
-			  				<th colspan="2">Input Diagnosa</th>
-			  			</tr>
-			  			<tr>
-			  				<th><?php echo form_input(array('id'=>'formdiagnosa','class'=>'form-control'));?></th>
-			  				<th><?php echo form_submit(array('type'=>'button','id'=>'simpandiagnosa','value'=>'Tambah','class'=>'btn btn-info'));?></th>
-			  			</tr>
-			  		</table>
-			  		<div id="datadiagnosa"></div>
-			  	</div>
-			  	<div role="tabpanel" class="tab-pane" id="tindakan">
-			  		<table class="table">
-			  			<tr>
-			  				<th colspan="2">Input Tindakan</th>
-			  			</tr>
-			  			<tr>
-			  				<th><?php echo form_input(array('id'=>'formtindakan','class'=>'form-control'));?></th>
-			  				<th><?php echo form_submit(array('type'=>'button','id'=>'simpantindakan','value'=>'Tambah','class'=>'btn btn-info'));?></th>
-			  			</tr>
-			  		</table>			  		
-			  		<div id="datatindakan"></div>
-			  	</div>
-			  	<div role="tabpanel" class="tab-pane" id="terapi">
-			  		<table class="table">
-			  			<tr>
+		<div class="col-md-12 col-sm-12 col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><b>Pemeriksaan Pasien</b></h3>
+				</div>
+				<div class="panel-body">
+					<?php echo form_open('terapi/periksa/'.$pasien->no_reg.'/'.$pasien->id,['target'=>'_blank']);?>
+					<input type="hidden" id="idreg" value="<?php echo $pasien->no_reg;?>">
+					<input type="hidden" id="pasien" value="<?php echo $pasien->id;?>">
+					<table class="table table-striped">
+						<tr>
+							<th width="10%">No. Daftar</th>
+							<th width="5%">:</th>
+							<th width="55%"><?php echo $pasien->no_reg;?>
+							</th>
+						</tr>
+						<tr>
+							<th>Nama Pasien</th>
+							<th>:</th>
+							<th><?php echo $pasien->namalengkap;?></th>
+						</tr>
+						<tr>	
+							<th>Umur</th>
+							<th>:</th>
+							<th><?php echo $pasien->umur;?> Th</th>
+						</tr>
+						<tr>	
+							<th>Alamat</th>
+							<th>:</th>
+							<th><?php echo $pasien->alamat;?></th>
+						</tr>
+						<tr>	
+							<th>Keluhan</th>
+							<th>:</th>
+							<th>
+								<?php echo $pasien->keluhan;?>
+							</th>
+						</tr>
+						<tr>	
+							<th>Diperiksa Oleh</th>
+							<th>:</th>
+							<th>
+								<div class="form-group">
+									<div class="col-lg-12">
+										<select name="tampil" class="form-control">
+											<option value="$dokter->agunghartoko">Agung</option>
+											<option value="$dokter->sitisundari">Siti</option> 
+										</select>
+									</div>
+								</div>
+							</th>
+						</tr>
+					</table>
+					<h4>Data Medik Pasien</h4>
+					<hr>
+					<div id="notif" class="alert alert-danger" style="display:none;"></div>
+					<div role="tabpanel">
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="periksa" class="active">
+								<a href="#diagnosa" aria-controls="diagnosa" role="tab" data-toggle="tab">Diagnosa</a>
+							</li>
+							<li role="periksa">
+								<a href="#tindakan" aria-controls="tindakan" role="tab" data-toggle="tab">Tindakan</a>
+							</li>
+							<li role="periksa">
+								<a href="#terapi" aria-controls="terapi" role="tab" data-toggle="tab">Terapi</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="diagnosa">
+								<table class="table">
+									<tr>
+										<th colspan="2">Input Diagnosa</th>
+									</tr>
+									<tr>
+										<th><?php echo form_input(array('id'=>'formdiagnosa','class'=>'form-control'));?></th>
+										<th><?php echo form_submit(array('type'=>'button','id'=>'simpandiagnosa','value'=>'Tambah','class'=>'btn btn-info'));?></th>
+									</tr>
+								</table>
+								<div id="datadiagnosa"></div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="tindakan">
+								<table class="table">
+									<tr>
+										<th colspan="2">Input Tindakan</th>
+									</tr>
+									<tr>
+										<th><?php echo form_input(array('id'=>'formtindakan','class'=>'form-control'));?></th>
+										<th><?php echo form_submit(array('type'=>'button','id'=>'simpantindakan','value'=>'Tambah','class'=>'btn btn-info'));?></th>
+									</tr>
+								</table>			  		
+								<div id="datatindakan"></div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="terapi">
+								<table class="table">
+									<tr>
 			  				<!--<th>Nama Obat</th>
 			  				<th>Anjuran Minum (ex: 3X1)</th>
 			  				<th>Jumlah</th>-->
@@ -202,26 +216,26 @@
 			  				<th><?php echo form_submit(array('type'=>'button','id'=>'simpanterapi','value'=>'Tambah','class'=>'btn btn-info'));?></th>-->
 
 			  				<th>
-									<input type="file" class="filestyle" name="rm_upload">
+			  					<input type="file" class="filestyle" name="rm_upload">
 
-								</th>
+			  				</th>
 
 			  			</tr>
 			  		</table>
 			  		<div id="dataterapi"></div>
 			  	</div>
-		  	</div>
+			  </div>
 
-		  	<div class="well">
-		  		<?php 
-		  			echo form_submit(array('name'=>'submit','id'=>'submit','class'=>'btn btn-success','value'=>'Selesai Pemeriksaan',))
-		  		?>
-		  	</div>
+			  <div class="well">
+			  	<?php 
+			  	echo form_submit(array('name'=>'submit','id'=>'submit','class'=>'btn btn-success','value'=>'Selesai Pemeriksaan',))
+			  	?>
+			  </div>
 
-		  </div>		  
-	  </div>
+			</div>		  
+		</div>
 	</div>
 </div>
 
-	</div>
+</div>
 </div>
