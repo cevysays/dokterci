@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 02, 2017 at 05:06 AM
+-- Generation Time: Dec 27, 2017 at 10:32 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -62,16 +62,10 @@ INSERT INTO `diagnosa` (`id`, `no_reg`, `pasien_id`, `diagnosa`) VALUES
 --
 
 CREATE TABLE `master_diagnosa` (
-  `icd_diagnosa` varchar(255) NOT NULL,
-  `nama_penyakit` varchar(255) NOT NULL
+  `diagnosa_id` int(10) NOT NULL,
+  `kode_icd` varchar(10) NOT NULL,
+  `nama_penyakit` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `master_diagnosa`
---
-
-INSERT INTO `master_diagnosa` (`icd_diagnosa`, `nama_penyakit`) VALUES
-('lul', 'lul');
 
 -- --------------------------------------------------------
 
@@ -80,9 +74,10 @@ INSERT INTO `master_diagnosa` (`icd_diagnosa`, `nama_penyakit`) VALUES
 --
 
 CREATE TABLE `master_tindakan` (
-  `icd_tindakan` varchar(255) NOT NULL,
-  `tindakan` varchar(255) NOT NULL,
-  `biaya` int(100) NOT NULL
+  `tindakan_id` int(10) NOT NULL,
+  `kode_tindakan` varchar(255) NOT NULL,
+  `nama_tindakan` text NOT NULL,
+  `biaya` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -133,6 +128,7 @@ INSERT INTO `pasien` (`id`, `namalengkap`, `alamat`, `umur`, `telp`, `riwayat`, 
 (000023, 'Adi Saputro W', 'Jalan HOS Cokroaminoto', 32, '0878543624223', '', '', '2017-07-12 04:44:30', 1),
 (000043, 'baru', 'baru', 12, '0', 'baru', 'file_baru_1503821358.', '2017-08-27 10:09:18', 1),
 (000044, 'cicim', 'godean', 23, '081226748565', 'boyok', 'file_cicim_1507095892.png', '2017-10-04 07:44:52', 1),
+(000045, 'baru', 'adsada', 11, '31412', 'dsada', 'file_baru_1514364232.', '2017-12-27 09:43:52', 1),
 (000042, 's', 's', 12, '12', 'ss', 'file_s_1500839957.jpg', '2017-07-23 21:59:17', 1);
 
 -- --------------------------------------------------------
@@ -166,7 +162,8 @@ INSERT INTO `registrasi` (`id`, `no_reg`, `pasien_id`, `tgl_reg`, `status`, `kel
 (15, 9, 000024, '2017-07-19', 1, 'pusing'),
 (16, 10, 000043, '2017-08-27', 0, 'keluhann baru'),
 (17, 11, 000044, '2017-10-04', 0, 'boyok'),
-(18, 12, 000044, '2017-10-04', 0, 'boyok');
+(18, 12, 000044, '2017-10-04', 0, 'boyok'),
+(19, 13, 000044, '2017-11-02', 0, 'test');
 
 -- --------------------------------------------------------
 
@@ -240,10 +237,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `namalengkap`, `email`, `role`, `created`, `modified`, `tgl_login`, `ip_login`, `status`) VALUES
-(15, 'cevyyufindra', 'afb91ef692fd08c445e8cb1bab2ccf9c', 'Cevy Yufindra', NULL, 'petugas', NULL, NULL, '2017-11-02 05:05:37', '::1', 1),
-(14, 'agunghartoko', '5ec2e91731b167db36a1daa68ac26332', 'dr. Agung Hartoko, S.Ked', NULL, 'dokter', NULL, NULL, '2017-11-02 04:42:59', '::1', 1),
-(11, 'cevyyufindra', '21232f297a57a5a743894a0e4a801fc3', 'Cevy Yufindra', NULL, 'admin', NULL, NULL, '2017-11-02 05:05:37', '::1', 1),
-(17, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', NULL, 'admin', NULL, NULL, '2017-10-04 10:36:48', '::1', 1),
+(15, 'cevyyufindra', 'afb91ef692fd08c445e8cb1bab2ccf9c', 'Cevy Yufindra', NULL, 'petugas', NULL, NULL, '2017-12-27 10:18:43', '::1', 1),
+(14, 'agunghartoko', '5ec2e91731b167db36a1daa68ac26332', 'dr. Agung Hartoko, S.Ked', NULL, 'dokter', NULL, NULL, '2017-12-27 10:18:21', '::1', 1),
+(11, 'cevyyufindra', '21232f297a57a5a743894a0e4a801fc3', 'Cevy Yufindra', NULL, 'admin', NULL, NULL, '2017-12-27 10:18:43', '::1', 1),
+(17, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', NULL, 'admin', NULL, NULL, '2017-12-27 10:11:26', '::1', 1),
 (18, 'sitisundari', '9e11c1469248e4f68a1088802bb476ed', 'dr. Hj. Siti Sundari, SpM., Mkes', NULL, 'dokter', NULL, NULL, '2017-07-12 09:56:52', '::1', 1),
 (21, 'penggunabaru', 'f6d6b705b589db67d48c7956573061ea', 'penggunabaru', NULL, 'petugas', NULL, NULL, '0000-00-00 00:00:00', '', 1);
 
@@ -261,13 +258,13 @@ ALTER TABLE `diagnosa`
 -- Indexes for table `master_diagnosa`
 --
 ALTER TABLE `master_diagnosa`
-  ADD PRIMARY KEY (`icd_diagnosa`);
+  ADD PRIMARY KEY (`diagnosa_id`);
 
 --
 -- Indexes for table `master_tindakan`
 --
 ALTER TABLE `master_tindakan`
-  ADD PRIMARY KEY (`icd_tindakan`);
+  ADD PRIMARY KEY (`tindakan_id`);
 
 --
 -- Indexes for table `pasien`
@@ -310,15 +307,25 @@ ALTER TABLE `users`
 ALTER TABLE `diagnosa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
+-- AUTO_INCREMENT for table `master_diagnosa`
+--
+ALTER TABLE `master_diagnosa`
+  MODIFY `diagnosa_id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `master_tindakan`
+--
+ALTER TABLE `master_tindakan`
+  MODIFY `tindakan_id` int(10) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `registrasi`
 --
 ALTER TABLE `registrasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `terapi`
 --
