@@ -65,9 +65,11 @@
               ?>
                 <li class="active"> <?php echo anchor('depan','Home');?></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pasien <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Master Data <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                       <li> <?php echo anchor('pasien','Data Pasien');?></li>
+                      <li> <?php echo anchor('diagnosa','Data Diagnosa');?></li>
+                      <li> <?php echo anchor('tindakan','Data Tindakan');?></li>
                     </ul>
                 </li>
                 <li class="dropdown">
