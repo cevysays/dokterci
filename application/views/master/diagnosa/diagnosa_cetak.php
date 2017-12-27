@@ -65,7 +65,7 @@ tr td{
             foreach($cetak as $rowcetak) :
             ?>
           <tr>
-            <td><?php echo $rowcetak->icd_diagnosa;?></td>
+            <td><?php echo $rowcetak->kode_icd;?></td>
             <td><?php echo $rowcetak->nama_penyakit;?></td>
            
           </tr> 

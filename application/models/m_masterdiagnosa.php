@@ -11,29 +11,29 @@ class M_masterdiagnosa extends CI_Model{
 
 	function tampil_masterdiagnosa($num, $offset){
 		$this->db->select(array(
-			'icd_diagnosa',
+			'kode_icd',
 			'nama_penyakit',
 			), FALSE);
 		
-		$this->db->order_by('icd_diagnosa', 'DESC');
+		$this->db->order_by('kode_icd', 'DESC');
 		$query = $this->db->get('master_diagnosa',$num, $offset);
 
 		return $query->result();
 	}
 
-	function update_masterdiagnosa($data, $icd_diagnosa){
-		$this->db->where('icd_diagnosa', $icd_diagnosa);
+	function update_masterdiagnosa($data, $kode_icd){
+		$this->db->where('kode_icd', $kode_icd);
 		$this->db->update('master_diagnosa', $data);
 	}
 
 	function ambil_masterdiagnosa($id){
-		$query = $this->db->get_where('master_diagnosa', array('icd_diagnosa'=>$id));
+		$query = $this->db->get_where('master_diagnosa', array('kode_icd'=>$id));
 
 		return $query->row();
 	}
 
-	function hapus_masterdiagnosa($icd_diagnosa){
-		$this->db->where('icd_diagnosa', $icd_diagnosa);
+	function hapus_masterdiagnosa($kode_icd){
+		$this->db->where('kode_icd', $kode_icd);
 		$this->db->delete('master_diagnosa');
 	}
 

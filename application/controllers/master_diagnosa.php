@@ -39,7 +39,7 @@ class master_diagnosa extends CI_Controller{
 			
 
             $data = array(
-            	'icd_diagnosa'=>$this->input->post('icd_diagnosa'),
+            	'kode_icd'=>$this->input->post('kode_icd'),
             	'nama_penyakit'=>$this->input->post('nama_penyakit'),
             	);
 
@@ -62,7 +62,7 @@ class master_diagnosa extends CI_Controller{
     			
 
     			$data = array(
-    				'icd_diagnosa'=>$this->input->post('icd_diagnosa'),
+    				'kode_icd'=>$this->input->post('kode_icd'),
     				'nama_penyakit'=>$this->input->post('nama_penyakit'),
     				);
 

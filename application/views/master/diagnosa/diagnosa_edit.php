@@ -7,18 +7,18 @@
 					<h3 class="panel-title"><b>Edit Data Master Diagnosa</b></h3>
 				</div>
 				<div class="panel-body">
-					<?php echo form_open('master_diagnosa/ubah/'.$query->icd_diagnosa);?>
+					<?php echo form_open('master_diagnosa/ubah/'.$query->kode_icd);?>
 					<table class="table table-striped">
 						<tr>
 							<th>Kode ICD</th>
 							<th>:</th>
 							<th><?php echo form_input(array(
-								'name'=>'icd_diagnosa', 
+								'name'=>'kode_icd', 
 								'class'=>'form-control',
-								'id'=>'icd_diagnosa',
+								'id'=>'kode_icd',
 								'autofocus'=>'autofocus',
 								'required'=>'required',
-								'value'=>$query->icd_diagnosa));?>
+								'value'=>$query->kode_icd));?>
 							</th>
 						</tr>
 						<tr>	

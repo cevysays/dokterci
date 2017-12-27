@@ -13,7 +13,7 @@
 							<th>Kode ICD</th>
 							<th>:</th>
 							<th><?php echo form_input(array(
-								'name'=>'icd_diagnosa', 
+								'name'=>'kode_icd', 
 								'class'=>'form-control',
 								'id'=>'nama',
 								'autofocus'=>'autofocus',
