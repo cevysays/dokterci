@@ -11,6 +11,7 @@ class M_masterdiagnosa extends CI_Model{
 
 	function tampil_masterdiagnosa($num, $offset){
 		$this->db->select(array(
+			'diagnosa_id',
 			'kode_icd',
 			'nama_penyakit',
 			), FALSE);
@@ -21,19 +22,19 @@ class M_masterdiagnosa extends CI_Model{
 		return $query->result();
 	}
 
-	function update_masterdiagnosa($data, $kode_icd){
-		$this->db->where('kode_icd', $kode_icd);
+	function update_masterdiagnosa($data, $diagnosa_id){
+		$this->db->where('diagnosa_id', $diagnosa_id);
 		$this->db->update('master_diagnosa', $data);
 	}
 
-	function ambil_masterdiagnosa($id){
-		$query = $this->db->get_where('master_diagnosa', array('kode_icd'=>$id));
+	function ambil_masterdiagnosa($diagnosa_id){
+		$query = $this->db->get_where('master_diagnosa', array('diagnosa_id'=>$diagnosa_id));
 
 		return $query->row();
 	}
 
-	function hapus_masterdiagnosa($kode_icd){
-		$this->db->where('kode_icd', $kode_icd);
+	function hapus_masterdiagnosa($diagnosa_id){
+		$this->db->where('diagnosa_id', $diagnosa_id);
 		$this->db->delete('master_diagnosa');
 	}
 
@@ -44,6 +45,21 @@ class M_masterdiagnosa extends CI_Model{
 		$query = $this->db->get('master_diagnosa');
 		return $query->result();
 
+	}
+
+	function cari_diagnosa($keyword = '')
+	{
+		$this->db->select(array(
+			'diagnosa_id',
+			'kode_icd',
+			'nama_penyakit',
+			), FALSE);
+		
+		$this->db->like('kode_icd', $keyword);
+		$this->db->or_like('nama_penyakit', $keyword);
+		$this->db->order_by('kode_icd', 'DESC');
+		$query = $this->db->get('master_diagnosa');
+		return $query->result();
 	}
 
 }

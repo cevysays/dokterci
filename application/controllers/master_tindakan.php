@@ -26,21 +26,26 @@ class master_tindakan extends CI_Controller{
 		$this->pagination->initialize($config);
 
 		$data['query'] = $this->master_tindakan->tampil_mastertindakan($config['per_page'],$id );
+
 		$this->uri->segment(3);
 
 		$data['halaman'] = $this->pagination->create_links();
-		$this->load->view('head');
+		  
+        //   echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
+        // die();
+        $this->load->view('head');
 		$this->load->view('master/tindakan/index', $data);
 		$this->load->view('foot');
 	}
 
 	function tambah_tindakan(){
 		if(isset($_POST['submit'])){
-			
-
             $data = array(
-            	'kode_icd'=>$this->input->post('kode_icd'),
-            	'nama_penyakit'=>$this->input->post('nama_penyakit'),
+            	'kode_tindakan' => $this->input->post('kode_tindakan'),
+                'nama_tindakan' => $this->input->post('nama_tindakan'),
+            	'biaya' => $this->input->post('biaya'),
             	);
 
             $this->master_tindakan->simpan($data);
@@ -60,11 +65,11 @@ class master_tindakan extends CI_Controller{
     	}else{
     		if(isset($_POST['submit'])){
     			
-
     			$data = array(
-    				'kode_icd'=>$this->input->post('kode_icd'),
-    				'nama_penyakit'=>$this->input->post('nama_penyakit'),
-    				);
+                    'kode_tindakan' => $this->input->post('kode_tindakan'),
+                    'nama_tindakan' => $this->input->post('nama_tindakan'),
+                    'biaya' => $this->input->post('biaya'),
+    			);
 
     			$this->master_tindakan->update_mastertindakan($data, $id);
     			$this->session->set_flashdata('pesan', '<div id="pesan" class="alert alert-success"><b>Sukses! </b> Data berhasil diubah.</div>');

@@ -9,8 +9,7 @@ class Terapi extends CI_Controller{
 		$this->load->model('m_registrasi', 'registrasi');
 		$this->load->model('m_pasien', 'pasien');
 		$this->load->model('m_pengguna', 'pengguna');
-
-		//$this->load->model('m_diagnosa', 'diagnosa');
+		$this->load->model('m_masterdiagnosa', 'diagnosa');
 	}
 
 
@@ -214,6 +213,15 @@ class Terapi extends CI_Controller{
 
 	function hapusterapi($id){
 		$this->terapi->hapus_terapi($id);
+	}
+
+	function get_diagnosa($keyword = '')
+	{
+		$data['diagnosa'] = $this->diagnosa->cari_diagnosa($keyword);
+		echo json_encode($data);
+		// echo "<pre>";
+		// print_r($x);
+		// echo "</pre>";
 	}
 //end of class
 }

@@ -11,6 +11,7 @@ class M_mastertindakan extends CI_Model{
 
 	function tampil_mastertindakan($num, $offset){
 		$this->db->select(array(
+			'tindakan_id',
 			'kode_tindakan',
 			'nama_tindakan',
 			'biaya',
@@ -22,19 +23,19 @@ class M_mastertindakan extends CI_Model{
 		return $query->result();
 	}
 
-	function update_mastertindakan($data, $kode_tindakan){
-		$this->db->where('kode_tindakan', $kode_tindakan);
+	function update_mastertindakan($data, $tindakan_id){
+		$this->db->where('tindakan_id', $tindakan_id);
 		$this->db->update('master_tindakan', $data);
 	}
 
 	function ambil_mastertindakan($id){
-		$query = $this->db->get_where('master_tindakan', array('kode_tindakan'=>$id));
+		$query = $this->db->get_where('master_tindakan', array('tindakan_id'=>$id));
 
 		return $query->row();
 	}
 
-	function hapus_mastertindakan($kode_tindakan){
-		$this->db->where('kode_tindakan', $kode_tindakan);
+	function hapus_mastertindakan($tindakan_id){
+		$this->db->where('tindakan_id', $tindakan_id);
 		$this->db->delete('master_tindakan');
 	}
 

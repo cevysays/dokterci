@@ -102,6 +102,25 @@
 			}
 		});
 
+		var options = {
+			url: function(phrase) {
+				return "<?php echo site_url();?>/terapi/get_diagnosa/" + phrase;
+			},
+			// getValue: function(element) {
+			// 	return element.nama_penyakit;
+			// },
+			getValue : 'nama_penyakit',
+			listLocation: "diagnosa",
+			list: {
+				maxNumberOfElements: 2,
+				match: {
+					enabled: true
+				}
+			}
+		};
+
+		$("#formdiagnosa").easyAutocomplete(options);
+
 	});
 
 </script>

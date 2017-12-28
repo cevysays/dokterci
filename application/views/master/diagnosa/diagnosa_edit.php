@@ -7,7 +7,7 @@
 					<h3 class="panel-title"><b>Edit Data Master Diagnosa</b></h3>
 				</div>
 				<div class="panel-body">
-					<?php echo form_open('master_diagnosa/ubah/'.$query->kode_icd);?>
+					<?php echo form_open('master_diagnosa/ubah/'.$query->diagnosa_id);?>
 					<table class="table table-striped">
 						<tr>
 							<th>Kode ICD</th>

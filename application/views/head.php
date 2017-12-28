@@ -8,6 +8,9 @@
     <link href="<?php echo base_url();?>assets/css/datepicker3.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/plugin/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/plugin/easyautocomplete/easy-autocomplete.min.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/plugin/easyautocomplete/easy-autocomplete.themes.min.css" rel="stylesheet">
+
     <style type="text/css">
         body{ padding: 70px 0px; }
       </style>
@@ -23,6 +26,7 @@
   <script type="text/javascript" src="<?php echo base_url();?>assets/plugin/fancybox/jquery.easing-1.3.pack.js">"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/plugin/fancybox/jquery.fancybox-1.3.4.js">"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/plugin/fancybox/jquery.mousewheel-3.0.4.pack.js">"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>assets/plugin/easyautocomplete/jquery.easy-autocomplete.min.js">"></script>
 
 
   <script type="text/javascript">

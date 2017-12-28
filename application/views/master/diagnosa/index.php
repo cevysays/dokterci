@@ -32,8 +32,8 @@
 						<td><?php echo $row->nama_penyakit;?></td>
 						<td><?php ?>
 						
-						<?php echo anchor('master_diagnosa/ubah/'.$row->kode_icd,'<i class="glyphicon glyphicon-pencil"></i>',array('class'=>'btn btn-sm btn-info', 'title'=>'Ubah Data'));?>
-						<?php echo anchor('master_diagnosa/hapus/'.$row->kode_icd,'<i class="glyphicon glyphicon-trash"></i>',array('class'=>'btn btn-sm btn-danger','title'=>'Hapus Data','onclick'=>"return confirm('Yakin mau hapus data ini?')"));?>
+						<?php echo anchor('master_diagnosa/ubah/'.$row->diagnosa_id,'<i class="glyphicon glyphicon-pencil"></i>',array('class'=>'btn btn-sm btn-info', 'title'=>'Ubah Data'));?>
+						<?php echo anchor('master_diagnosa/hapus/'.$row->diagnosa_id,'<i class="glyphicon glyphicon-trash"></i>',array('class'=>'btn btn-sm btn-danger','title'=>'Hapus Data','onclick'=>"return confirm('Yakin mau hapus data ini?')"));?>
 						</td>
 					</tr>	
 						<?php
