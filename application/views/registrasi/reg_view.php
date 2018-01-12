@@ -18,6 +18,7 @@
 						<th>Nama Pasien</th>
 						<th>Alamat</th>
 						<th>Umur</th>
+						<th>Diperiksa</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -32,7 +33,8 @@
 						<td><?php echo $row->no_reg;?></td>
 						<td><?php echo $row->namalengkap;?></td>
 						<td><?php echo $row->alamat;?></td>
-						<td><?php echo $row->umur;?> Th</td>
+						<td><?php echo $row->umur;?>Th</td>
+						<td><?php echo $row->divisi;?></td>
 						
 					</tr>	
 						<?php

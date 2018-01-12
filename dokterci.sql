@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2017 at 10:32 AM
+-- Generation Time: Jan 04, 2018 at 01:17 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -67,6 +67,13 @@ CREATE TABLE `master_diagnosa` (
   `nama_penyakit` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `master_diagnosa`
+--
+
+INSERT INTO `master_diagnosa` (`diagnosa_id`, `kode_icd`, `nama_penyakit`) VALUES
+(1, 'xxx', 'ehehehehe');
+
 -- --------------------------------------------------------
 
 --
@@ -79,6 +86,13 @@ CREATE TABLE `master_tindakan` (
   `nama_tindakan` text NOT NULL,
   `biaya` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `master_tindakan`
+--
+
+INSERT INTO `master_tindakan` (`tindakan_id`, `kode_tindakan`, `nama_tindakan`, `biaya`) VALUES
+(1, 'xx12', 'nganu', 200000);
 
 -- --------------------------------------------------------
 
@@ -240,7 +254,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `namalengkap`, `email`, `role
 (15, 'cevyyufindra', 'afb91ef692fd08c445e8cb1bab2ccf9c', 'Cevy Yufindra', NULL, 'petugas', NULL, NULL, '2017-12-27 10:18:43', '::1', 1),
 (14, 'agunghartoko', '5ec2e91731b167db36a1daa68ac26332', 'dr. Agung Hartoko, S.Ked', NULL, 'dokter', NULL, NULL, '2017-12-27 10:18:21', '::1', 1),
 (11, 'cevyyufindra', '21232f297a57a5a743894a0e4a801fc3', 'Cevy Yufindra', NULL, 'admin', NULL, NULL, '2017-12-27 10:18:43', '::1', 1),
-(17, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', NULL, 'admin', NULL, NULL, '2017-12-27 10:11:26', '::1', 1),
+(17, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', NULL, 'admin', NULL, NULL, '2018-01-04 01:05:34', '::1', 1),
 (18, 'sitisundari', '9e11c1469248e4f68a1088802bb476ed', 'dr. Hj. Siti Sundari, SpM., Mkes', NULL, 'dokter', NULL, NULL, '2017-07-12 09:56:52', '::1', 1),
 (21, 'penggunabaru', 'f6d6b705b589db67d48c7956573061ea', 'penggunabaru', NULL, 'petugas', NULL, NULL, '0000-00-00 00:00:00', '', 1);
 
@@ -310,12 +324,12 @@ ALTER TABLE `diagnosa`
 -- AUTO_INCREMENT for table `master_diagnosa`
 --
 ALTER TABLE `master_diagnosa`
-  MODIFY `diagnosa_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `diagnosa_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `master_tindakan`
 --
 ALTER TABLE `master_tindakan`
-  MODIFY `tindakan_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `tindakan_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pasien`
 --

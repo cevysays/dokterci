@@ -42,7 +42,7 @@
 										'rows'=>'5'));?>
 									</th>
 								</tr>
-								<tr>
+								<!---<tr>
 									<th>Divisi</th>
 									<th>:</th>
 									<th>
@@ -54,7 +54,26 @@
 												</select>
 										</div>
 									</th>
-								</tr>
+								</tr>-->
+							<tr>
+	    						<th>Divisi</th>
+	    						<th>:</th>
+	    						<td>
+	    						<select name="divisi" class="form-control">
+	    						<?php
+	    							$role = array(
+	    								'umum'=>'Dokter Umum',
+	    								'mata'=>'Dokter Mata',
+	    								'gigi'=>'Dokter Gigi'
+	    								);
+	    							foreach($role as $row=>$value):
+	    								echo '<option value="'.$row.'">'.$value.'</option>';
+	    								endforeach;
+	    						?>
+	    						</select>
+	    						</td>
+	    					</tr>
+
 								<tr>
 									<th colspan="3">
 										<?php echo form_submit(array(

@@ -31,13 +31,15 @@ class Registrasi extends CI_Controller{
 				$idpasien = $id;
 				$keluhan = $this->input->post('keluhan');
 				$tgl = date('Y-m-d');
+				$divisi = $this->input->post('divisi');
 
 				$data = array(
 					'no_reg'=>
 					preg_replace('/\D/', '', $idreg),
 					'pasien_id'=>$idpasien,
 					'tgl_reg'=>$tgl,
-					'keluhan'=>$keluhan
+					'keluhan'=>$keluhan,
+					'divisi'=>$divisi
 					);
 
 
