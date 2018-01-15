@@ -62,9 +62,9 @@
 	    						<select name="divisi" class="form-control">
 	    						<?php
 	    							$role = array(
-	    								'umum'=>'Dokter Umum',
-	    								'mata'=>'Dokter Mata',
-	    								'gigi'=>'Dokter Gigi'
+	    								'Umum'=>'Dokter Umum',
+	    								'Mata'=>'Dokter Mata',
+	    								'Gigi'=>'Dokter Gigi'
 	    								);
 	    							foreach($role as $row=>$value):
 	    								echo '<option value="'.$row.'">'.$value.'</option>';

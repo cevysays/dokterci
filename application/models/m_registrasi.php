@@ -44,10 +44,8 @@ class M_registrasi extends CI_Model{
 
 
 	function tampil_registrasi(){
-		$this->db->select(array(
-			'registrasi.no_reg',
-			'pasien.*'));
-		$this->db->join('pasien','pasien.id = registrasi.pasien_id','LEFT');
+		$this->db->select('*');
+		$this->db->join('pasien','pasien.id = registrasi.pasien_id','left');
 		$this->db->where('registrasi.status',0);
 		$this->db->order_by('registrasi.id','ASC');
 

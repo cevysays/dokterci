@@ -17,7 +17,7 @@
 						<th>Nama Pasien</th>
 						<th>Alamat</th>
 						<th>Umur</th>
-						<th>Divisi</th>
+						<th>Diperiksa oleh</th>
 						<th>Aksi</th>
 					</tr>
 				</thead>
@@ -27,6 +27,7 @@
 					}else{
 						$no = 1;
 						foreach($query as $row) :
+							// echo json_encode($row, true);
 						?>
 					<tr>
 						<td><span class="label label-danger"><?php echo $no;?></span></td>
@@ -35,8 +36,7 @@
 						<td><?php echo $row->namalengkap;?></td>
 						<td><?php echo $row->alamat;?></td>
 						<td><?php echo $row->umur;?> Th</td>
-						<td><?php echo $row->divisi;?></td> 
-						<!--<td></*?php echo "Dokter Umum";?*/></td> meh dimasukin db atau cuma flag aja?-->
+						<td><?php echo "Dokter ".$row->divisi;?></td> 						
 						<td><?php echo anchor('terapi/periksa/'.$row->no_reg.'/'.$row->id,'
 							<i class="glyphicon glyphicon-search"></i> Mulai Periksa',array(
 							'class'=>'btn btn-sm btn-success'

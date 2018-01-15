@@ -46,7 +46,7 @@
 										'value'=>$query->alamat));?>
 									</th>
 								</tr>
-								<!--<tr>	
+								<tr>	
 									<th>Riwayat Sakit</th>
 									<th>:</th>
 									<th>
@@ -55,9 +55,10 @@
 											'class'=>'form-control',
 											'id'=>'riwayat',
 											'required'=>'required',
-											'rows'=>'5'));?>
+											'rows'=>'5',
+											'value'=>$query->riwayat));?>
 										</th>
-									</tr>-->
+									</tr>
 									<tr>	
 										<th>Telp</th>
 										<th>:</th>
@@ -70,14 +71,14 @@
 												'value'=>$query->telp));?>
 											</th>
 										</tr>
-										<!--<tr>	
+										<tr>	
 											<th>Upload Rekamedis</th>
 											<th>:</th>
 											<th>
 												<input type="file" class="filestyle" name="rm_upload">
 
 											</th>
-										</tr>-->
+										</tr>
 										<tr>
 											<th colspan="3">
 												<?php echo form_submit(array(
