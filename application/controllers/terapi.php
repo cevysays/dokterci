@@ -10,6 +10,7 @@ class Terapi extends CI_Controller{
 		$this->load->model('m_pasien', 'pasien');
 		$this->load->model('m_pengguna', 'pengguna');
 		$this->load->model('m_masterdiagnosa', 'diagnosa');
+		$this->load->model('m_mastertindakan', 'tindakan');
 	}
 
 
@@ -38,6 +39,8 @@ class Terapi extends CI_Controller{
 			}
 				$data['pasien'] = $this->terapi->ambil_data_pasien($nomerekammedis,$noreg);
 				$data['dokter'] = $this->pengguna->get_users_by_role('dokter');
+				$data['list_diagnosa'] = $this->diagnosa->tampil_masterdiagnosa();
+				$data['list_tindakan'] = $this->tindakan->tampil_mastertindakan();
 
 				$this->load->view('head');
 				$this->load->view('terapi/terapi_periksa', $data);
@@ -153,6 +156,9 @@ class Terapi extends CI_Controller{
 	*
 	**/
 	function tambahtindakan(){
+
+		print_r($_POST);
+		exit();
 		$tindakan = $this->input->post('tindakan');
 		$noreg = $this->input->post('noreg');
 		$pasien = $this->input->post('pasien');
@@ -162,6 +168,7 @@ class Terapi extends CI_Controller{
 			'pasien_id'=>$pasien,
 			'tindakan'=>$tindakan
 			);
+
 		$this->terapi->simpan_data('tindakan',$data);
 	}
 
@@ -184,6 +191,7 @@ class Terapi extends CI_Controller{
 	*
 	**/
 	function tambahterapi(){
+		die('die');
 		$obat = $this->input->post('obat');
 		$etiket = $this->input->post('etiket');
 		$jml = $this->input->post('jml');

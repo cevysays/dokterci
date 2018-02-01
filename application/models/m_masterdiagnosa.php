@@ -9,7 +9,7 @@ class M_masterdiagnosa extends CI_Model{
 		$this->db->insert('master_diagnosa', $data);
 	}
 
-	function tampil_masterdiagnosa($num, $offset){
+	function tampil_masterdiagnosa($num='', $offset=''){
 		$this->db->select(array(
 			'diagnosa_id',
 			'kode_icd',
@@ -17,7 +17,12 @@ class M_masterdiagnosa extends CI_Model{
 			), FALSE);
 		
 		$this->db->order_by('kode_icd', 'DESC');
-		$query = $this->db->get('master_diagnosa',$num, $offset);
+		if ($num!='' && $offset!='') {
+			$query = $this->db->get('master_diagnosa',$num, $offset);
+		} else{
+			$query = $this->db->get('master_diagnosa');
+		}
+		
 
 		return $query->result();
 	}

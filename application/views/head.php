@@ -10,9 +10,13 @@
     <link href="<?php echo base_url();?>assets/plugin/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/plugin/easyautocomplete/easy-autocomplete.min.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/plugin/easyautocomplete/easy-autocomplete.themes.min.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/css/select2.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/css/select2.min.css" rel="stylesheet">
 
     <style type="text/css">
         body{ padding: 70px 0px; }
+        select2-container{ width: 100% !important; }
+
       </style>
 
 	
@@ -28,6 +32,12 @@
   <script type="text/javascript" src="<?php echo base_url();?>assets/plugin/fancybox/jquery.mousewheel-3.0.4.pack.js">"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/plugin/easyautocomplete/jquery.easy-autocomplete.min.js">"></script>
 
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.js">"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.min.js">"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.full.js">"></script>  
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.full.min.js">"></script>  
+  
+
 
   <script type="text/javascript">
  
@@ -41,12 +51,17 @@
       $(document).ready(function() {
       $("a.fancyimg").fancybox();
     });
-      </script>
-      
+
+      $(document).ready(function () {
+  $('.select2').select2({
+    placeholder:'pilih diagnosa',
+      multiple: true
+  });
+  });
+  </script>
 
 
-
-	
+      	
 	</head>
 	<body>
   <div id="status-msg"></div>

@@ -9,7 +9,7 @@ class M_mastertindakan extends CI_Model{
 		$this->db->insert('master_tindakan', $data);
 	}
 
-	function tampil_mastertindakan($num, $offset){
+	function tampil_mastertindakan($num='', $offset=''){
 		$this->db->select(array(
 			'tindakan_id',
 			'kode_tindakan',
@@ -18,7 +18,11 @@ class M_mastertindakan extends CI_Model{
 			), FALSE);
 		
 		$this->db->order_by('kode_tindakan', 'DESC');
-		$query = $this->db->get('master_tindakan',$num, $offset);
+		if ($num!='' && $offset!='') {
+			$query = $this->db->get('master_tindakan',$num, $offset);
+		} else{
+			$query = $this->db->get('master_tindakan');
+		}
 
 		return $query->result();
 	}

@@ -205,7 +205,16 @@
 										<th colspan="2">Input Diagnosa</th>
 									</tr>
 									<tr>
-										<th><?php echo form_input(array('id'=>'formdiagnosa','class'=>'form-control'));?></th>
+										<th><?php //echo form_input(array('id'=>'formdiagnosa','class'=>'form-control'));?>
+											<select name="diagnosa" id="formdiagnosa" class="form-control select2">
+									<?php foreach ($list_diagnosa as $item):?>
+										<option value="<?=$item->diagnosa_id ?>">
+											<?= $item->nama_penyakit ?>
+											</option>
+									<?php endforeach ?>
+								</select>
+
+										</th>
 										<th><?php echo form_submit(array('type'=>'button','id'=>'simpandiagnosa','value'=>'Tambah','class'=>'btn btn-info'));?></th>
 									</tr>
 								</table>
@@ -217,7 +226,18 @@
 										<th colspan="2">Input Tindakan</th>
 									</tr>
 									<tr>
-										<th><?php echo form_input(array('id'=>'formtindakan','class'=>'form-control'));?></th>
+										<th><?php 
+										// echo form_input(array('id'=>'formtindakan','class'=>'form-control'));
+										?>
+
+									<select name="tindakan[]" id="formtindakan" class="form-control select2">
+									<?php foreach ($list_tindakan as $item):?>
+										<option value="<?=$item->tindakan_id ?>">
+											<?= $item->nama_tindakan ?>
+											</option>
+									<?php endforeach ?>
+
+										</th>
 										<th><?php echo form_submit(array('type'=>'button','id'=>'simpantindakan','value'=>'Tambah','class'=>'btn btn-info'));?></th>
 									</tr>
 								</table>
