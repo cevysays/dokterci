@@ -29,22 +29,22 @@ class Terapi extends CI_Controller{
 			//print_r($noreg);
 			//print_r($nomerekammedis);exit();
 
-			if(isset($_POST['submit'])){
+		if(isset($_POST['submit'])){
 
-				$data = array('status'=>1);
+			$data = array('status'=>1);
 
-				$this->terapi->selesai_periksa($data, $noreg);
-				redirect('terapi/cetak/'.$noreg.'/'.$nomerekammedis);
+			$this->terapi->selesai_periksa($data, $noreg);
+			redirect('terapi/cetak/'.$noreg.'/'.$nomerekammedis);
 
-			}
-				$data['pasien'] = $this->terapi->ambil_data_pasien($nomerekammedis,$noreg);
-				$data['dokter'] = $this->pengguna->get_users_by_role('dokter');
-				$data['list_diagnosa'] = $this->diagnosa->tampil_masterdiagnosa();
-				$data['list_tindakan'] = $this->tindakan->tampil_mastertindakan();
+		}
+		$data['pasien'] = $this->terapi->ambil_data_pasien($nomerekammedis,$noreg);
+		$data['dokter'] = $this->pengguna->get_users_by_role('dokter');
+		$data['list_diagnosa'] = $this->diagnosa->tampil_masterdiagnosa();
+		$data['list_tindakan'] = $this->tindakan->tampil_mastertindakan();
 
-				$this->load->view('head');
-				$this->load->view('terapi/terapi_periksa', $data);
-				$this->load->view('foot');
+		$this->load->view('head');
+		$this->load->view('terapi/terapi_periksa', $data);
+		$this->load->view('foot');
 
 
 	}
@@ -67,18 +67,18 @@ class Terapi extends CI_Controller{
 		$config['per_page'] = 20;
 		$config['total_rows'] = $get->num_rows();
 		$config['next_page'] = '&raquo;';
-    	$config['prev_page'] = '&laquo;';
-    	$config['first_page'] = 'Awal';
-    	$config['last_page'] = 'Akhir';
+		$config['prev_page'] = '&laquo;';
+		$config['first_page'] = 'Awal';
+		$config['last_page'] = 'Akhir';
 
-    	$this->pagination->initialize($config);
+		$this->pagination->initialize($config);
 
-    	$data['halaman'] = $this->pagination->create_links();
-    	$data['query'] = $this->terapi->tampil_history($config['per_page'], $this->uri->segment(3));
+		$data['halaman'] = $this->pagination->create_links();
+		$data['query'] = $this->terapi->tampil_history($config['per_page'], $this->uri->segment(3));
 
-    	$this->load->view('head');
-    	$this->load->view('terapi/terapi_history_view', $data);
-    	$this->load->view('foot');
+		$this->load->view('head');
+		$this->load->view('terapi/terapi_history_view', $data);
+		$this->load->view('foot');
 	}
 
 
@@ -91,8 +91,8 @@ class Terapi extends CI_Controller{
 		$data['terapi'] = $this->terapi->tampil_history_terapi($pasien);
 
 		$this->load->view('head');
-    	$this->load->view('terapi/terapi_history_detail', $data);
-    	$this->load->view('foot');
+		$this->load->view('terapi/terapi_history_detail', $data);
+		$this->load->view('foot');
 	}
 
 
@@ -112,9 +112,9 @@ class Terapi extends CI_Controller{
 		$data['terapi'] = $this->terapi->tampil_history_terapi($pasien);
 
 		//$this->load->view('head');
-    	$this->load->view('terapi/terapi_history_cetak', $data);
+		$this->load->view('terapi/terapi_history_cetak', $data);
     	//$this->load->view('foot');
-    }
+	}
 
 
 
@@ -124,16 +124,13 @@ class Terapi extends CI_Controller{
 	*
 	**/
 	function tambahdiagnosa(){
-		$diagnosa = $this->input->post('diagnosa');
-		$noreg = $this->input->post('noreg');
-		$pasien = $this->input->post('pasien');
 
-		$data = array(
-			'no_reg'=>$noreg,
-			'pasien_id'=>$pasien,
-			'diagnosa'=>$diagnosa
+			$data = array(
+				'no_reg'=>$this->input->post('noreg'),
+				'pasien_id'=>$this->input->post('pasien'),
+				'diagnosa'=>$this->input->post('diagnosa'),
 			);
-		$this->terapi->simpan_data('diagnosa',$data);
+			$this->terapi->simpan_data('diagnosa',$data);
 	}
 
 
@@ -156,9 +153,6 @@ class Terapi extends CI_Controller{
 	*
 	**/
 	function tambahtindakan(){
-
-		print_r($_POST);
-		exit();
 		$tindakan = $this->input->post('tindakan');
 		$noreg = $this->input->post('noreg');
 		$pasien = $this->input->post('pasien');
@@ -167,7 +161,7 @@ class Terapi extends CI_Controller{
 			'no_reg'=>$noreg,
 			'pasien_id'=>$pasien,
 			'tindakan'=>$tindakan
-			);
+		);
 
 		$this->terapi->simpan_data('tindakan',$data);
 	}
@@ -206,7 +200,7 @@ class Terapi extends CI_Controller{
 			'etiket'=>$etiket,
 			'jml'=>$jml,
 			'tgl'=>$tgl
-			);
+		);
 
 		$this->terapi->simpan_data('terapi',$data);
 	}

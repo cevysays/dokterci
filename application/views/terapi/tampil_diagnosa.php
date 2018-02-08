@@ -30,7 +30,7 @@ if(empty($query)){
 		?>
 		
 		<tr>
-			<td><?php echo $row->diagnosa;?></td>
+			<td><?php echo $row->kode_icd;?> - <?php echo $row->nama_penyakit;?></td>
 			<td>
 				<a href="#" onclick="hapus('<?php echo $row->id;?>','<?php echo $row->no_reg;?>')" title="Hapus Data Diagnosa" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			</td>
