@@ -31,7 +31,7 @@ if(empty($query)){
 		?>
 		
 		<tr>
-			<td><?php echo $row->tindakan;?></td>
+			<td><?php echo $row->nama_tindakan;?></td>
 			<td>
 				<a href="#" onclick="hapus('<?php echo $row->id;?>','<?php echo $row->no_reg;?>')" title="Hapus Data Diagnosa" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			</td>

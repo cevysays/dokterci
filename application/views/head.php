@@ -15,7 +15,7 @@
 
     <style type="text/css">
         body{ padding: 70px 0px; }
-        select2-container{ width: 100% !important; }
+        
 
       </style>
 
@@ -54,7 +54,8 @@
 
       $(document).ready(function () {
   $('.select2').select2({
-    placeholder:'pilih diagnosa',
+    placeholder:'pilih data',
+    width: '100%' 
   });
   });
   </script>

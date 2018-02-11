@@ -124,6 +124,7 @@ class Terapi extends CI_Controller{
 	*
 	**/
 	function tambahdiagnosa(){
+		
 
 			$data = array(
 				'no_reg'=>$this->input->post('noreg'),

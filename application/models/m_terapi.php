@@ -87,6 +87,8 @@ class M_terapi extends CI_Model{
 
 
 	function tampil_tindakan($noreg){
+		$this->db->select('tindakan.*,master_tindakan.*');
+		$this->db->join('master_tindakan','master_tindakan.tindakan_id = tindakan.tindakan');
 		$this->db->order_by('id','DESC');
 		$query = $this->db->get_where('tindakan',array('no_reg'=>$noreg));
 
