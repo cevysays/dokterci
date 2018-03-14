@@ -70,7 +70,7 @@ tr td{
         ?>
         <tr>
           <td><?php echo $no;?></td>
-          <td><?php echo $rowdiagnosa->diagnosa;?></td>
+          <td><?php echo $rowdiagnosa->nama_penyakit;?></td>
         </tr>
         <?php
         $no++;
@@ -85,19 +85,23 @@ tr td{
   <tr>
     <td style="border-top:1px solid #000;border-bottom:1px solid #000;">No.</td>
     <td style="border-top:1px solid #000;border-bottom:1px solid #000;">Tindakan</td>
+    <td align="right" style="border-top:1px solid #000;border-bottom:1px solid #000;">Biaya(Rp)</td>
   </tr>
   <?php 
     if(empty($tindakan)){
       echo '<tr><th colspan="2">Data tidak tersedia.</th></tr>';
     }else{
       $no = 1;
+      $sum = 0;
       foreach($tindakan as $rowtindakan):
         ?>
         <tr>
           <td><?php echo $no;?></td>
-          <td><?php echo $rowtindakan->tindakan;?></td>
+          <td><?php echo $rowtindakan->nama_tindakan;?></td>
+          <td align="right"><?php echo number_format($rowtindakan->biaya,2,',','.');?></td>
         </tr>
         <?php
+        $sum += $rowtindakan->biaya;
         $no++;
       endforeach;
     }
@@ -106,14 +110,14 @@ tr td{
 <br>
 
 <table width="700" border="0" cellspacing="0" cellpadding="0" align="center">
-  <tr><th colspan="4" align="left">Data Terapi</th></tr>
+  <!-- <tr><th colspan="4" align="left">Data Terapi</th></tr> -->
   <tr>
-    <td width="13"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">No</div></td>
-    <td width="179"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">Item</div></td>
-    <td width="96"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">Etiket </div></td>
-    <td width="96"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">Jumlah</div></td>
+    <td ><div align="left" style="border-top:1px solid #000;border-bottom:1px solid #000;">Jumlah</div></td>
+    <td ><div style="border-top:1px solid #000;border-bottom:1px solid #000;">&nbsp;</div></td>
+    <td ><div align="right" style="border-top:1px solid #000;border-bottom:1px solid #000;"><?php echo number_format($sum,2,',','.'); ?> </div></td>
+  <!--   <td width="96"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">Jumlah</div></td> -->
      </tr>
-  <?php 
+  <!-- <?php 
   $no = 0;
   foreach($terapi as $rowterapi){
   $no++;
@@ -126,7 +130,7 @@ tr td{
   </tr>
   <?php 
   }
-  ?>
+  ?> -->
   
 </table>
 <br />

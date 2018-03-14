@@ -130,8 +130,15 @@ class Terapi extends CI_Controller{
 				'no_reg'=>$this->input->post('noreg'),
 				'pasien_id'=>$this->input->post('pasien'),
 				'diagnosa'=>$this->input->post('diagnosa'),
+				'tanggal_periksa'=>date('Y-m-d'),
 			);
-			$this->terapi->simpan_data('diagnosa',$data);
+
+			// $q = $this->terapi->update_by_tanggal(date('Y-m-d'), $data, 'diagnosa');
+			
+			// if ($q==0) {
+				$this->terapi->amburadul_data($data);
+			// } 
+
 	}
 
 
@@ -142,8 +149,9 @@ class Terapi extends CI_Controller{
 	}
 
 
-	function hapusdiagnosa($id){
-		$this->terapi->hapus_diagnosa($id);
+	function hapusdiagnosa($noreg, $pasien_id, $diagnosa, $tanggal_periksa)
+	{
+		$this->terapi->hapus_diagnosa($noreg, $pasien_id, $diagnosa, $tanggal_periksa);
 	}
 
 

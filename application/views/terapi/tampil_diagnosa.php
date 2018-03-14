@@ -1,9 +1,9 @@
 <script type="text/javascript">
-	function hapus(id, noreg){
+	function hapus(noreg, pasien_id, diagnosa, tanggal_periksa){
 		if(confirm('Yakin mau menghapus data ini?')){
 			$(document).ready(function(){
 				$.ajax({
-					url : '<?php echo site_url();?>/terapi/hapusdiagnosa/'+id,
+					url : '<?php echo site_url();?>/terapi/hapusdiagnosa/'+noreg+'/'+pasien_id+'/'+ diagnosa+'/'+tanggal_periksa,
 					beforeSend:function(){
 						$('#datadiagnosa').html('<img src="<?php echo base_url();?>assets/img/loading-gede.gif">');
 						$('#datadiagnosa').fadeIn(2500);
@@ -32,7 +32,7 @@ if(empty($query)){
 		<tr>
 			<td><?php echo $row->kode_icd;?> - <?php echo $row->nama_penyakit;?></td>
 			<td>
-				<a href="#" onclick="hapus('<?php echo $row->id;?>','<?php echo $row->no_reg;?>')" title="Hapus Data Diagnosa" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+				<a href="#" onclick="hapus('<?php echo $row->no_reg;?>','<?php echo $row->pasien_id;?>','<?php echo $row->diagnosa ?>','<?php echo $row->tanggal_periksa ?>')" title="Hapus Data Diagnosa" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
 			</td>
 		</tr>
 		<?php
