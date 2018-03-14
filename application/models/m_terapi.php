@@ -50,51 +50,15 @@ class M_terapi extends CI_Model{
 		$this->db->insert($table, $data);
 	}
 
-	// function replace_data($table, $data){
-	// 	$this->db->replace($table, $data);
-	// }
+	function amburadul_data($table,$data){
 
-	function amburadul_data($data){
-
-    $this->db->where('no_reg', $data['no_reg']);
-    $this->db->where('pasien_id', $data['pasien_id']);
-    $this->db->where('diagnosa', $data['diagnosa']);
-    $this->db->where('tanggal_periksa', $data['tanggal_periksa']);
-    $res1 = $this->db->get('diagnosa')->row();
+    $this->db->where($data);
+    $res1 = $this->db->get($table)->row();
 
     if(empty($res1)){
-    	$this->db->insert('diagnosa', $data);
-    }
-
-
-    // // if ($res1->row()->id==null)
-    // // {
-    	
-
-    // 	print_r(empty($res1->row()->id) ? 'a' : 'b');
-    // 	exit();
-
-    	// $this->simpan_data('diagnosa',$data);
-    // }
-
- //        return false;
-
-
+    	$this->db->insert($table, $data);
+	    }
 	}
-
-
-
-	// function update_by_tanggal($tanggal, $data, $table)
-	// {    	
-	// 	$this->db->where('tanggal_periksa', $tanggal);
-	// 	$this->db->update($table, $data);
-
-	// 	if($this->db->affected_rows() ==0){
-	// 		  return 0; //add your code here
-	// 		}else{
-	// 		  return 1; //add your your code here
-	// 		}
-	// }
 
 
 function tampil_history_keluhan($pasien){
@@ -134,7 +98,6 @@ function tampil_history_diagnosa($pasien){
 function tampil_tindakan($noreg){
 	$this->db->select('tindakan.*,master_tindakan.*');
 	$this->db->join('master_tindakan','master_tindakan.tindakan_id = tindakan.tindakan');
-	$this->db->order_by('id','DESC');
 	$query = $this->db->get_where('tindakan',array('no_reg'=>$noreg));
 
 	return $query->result();
@@ -183,8 +146,11 @@ function hapus_diagnosa($noreg, $pasien_id, $diagnosa, $tanggal_periksa){
 }
 
 
-function hapus_tindakan($id){
-	$this->db->where('id', $id);
+function hapus_tindakan($noreg, $pasien_id, $tindakan, $tanggal_periksa){
+	$this->db->where('no_reg', $noreg);
+	$this->db->where('pasien_id', $pasien_id);
+	$this->db->where('tindakan', $tindakan);
+	$this->db->where('tanggal_periksa', $tanggal_periksa);
 	$this->db->delete('tindakan');
 }
 

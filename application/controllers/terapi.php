@@ -133,11 +133,7 @@ class Terapi extends CI_Controller{
 				'tanggal_periksa'=>date('Y-m-d'),
 			);
 
-			// $q = $this->terapi->update_by_tanggal(date('Y-m-d'), $data, 'diagnosa');
-			
-			// if ($q==0) {
-				$this->terapi->amburadul_data($data);
-			// } 
+			$this->terapi->amburadul_data('diagnosa',$data);
 
 	}
 
@@ -162,17 +158,15 @@ class Terapi extends CI_Controller{
 	*
 	**/
 	function tambahtindakan(){
-		$tindakan = $this->input->post('tindakan');
-		$noreg = $this->input->post('noreg');
-		$pasien = $this->input->post('pasien');
 
 		$data = array(
-			'no_reg'=>$noreg,
-			'pasien_id'=>$pasien,
-			'tindakan'=>$tindakan
+			'no_reg'=>$this->input->post('noreg'),
+			'pasien_id'=>$this->input->post('pasien'),
+			'tindakan'=>$this->input->post('tindakan'),
+			'tanggal_periksa'=>date('Y-m-d'),
 		);
 
-		$this->terapi->simpan_data('tindakan',$data);
+		$this->terapi->amburadul_data('tindakan',$data);
 	}
 
 
@@ -183,8 +177,8 @@ class Terapi extends CI_Controller{
 	}
 
 
-	function hapustindakan($id){
-		$this->terapi->hapus_tindakan($id);
+	function hapustindakan($noreg, $pasien_id, $tindakan, $tanggal_periksa){
+		$this->terapi->hapus_tindakan($noreg, $pasien_id, $tindakan, $tanggal_periksa);
 	}
 
 
