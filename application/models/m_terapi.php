@@ -89,7 +89,6 @@ function tampil_history_diagnosa($pasien){
 		'diagnosa.*'
 	), FALSE);
 	$this->db->join('registrasi','registrasi.no_reg = diagnosa.no_reg');
-	$this->db->order_by('diagnosa.id','DESC');
 	$query = $this->db->get_where('diagnosa', array('diagnosa.pasien_id'=>$pasien));
 
 	return $query->result();
@@ -110,7 +109,6 @@ function tampil_history_tindakan($pasien){
 		'tindakan.*'
 	),FALSE);
 	$this->db->join('registrasi','registrasi.no_reg = tindakan.no_reg');
-	$this->db->order_by('tindakan.id','DESC');
 	$query = $this->db->get_where('tindakan', array('tindakan.pasien_id'=>$pasien));
 
 	return $query->result();

@@ -7,7 +7,7 @@
 					<h3 class="panel-title"><b>Edit Pasien</b></h3>
 				</div>
 				<div class="panel-body">
-					<?php echo form_open('pasien/ubah/'.$query->id);?>
+					<?php echo form_open_multipart('pasien/ubah/'.$query->id);?>
 					<table class="table table-striped">
 						<tr>
 							<th>Nama Pasien</th>
