@@ -73,7 +73,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <?php echo anchor('depan','<i class="glyphicon glyphicon-plus"></i>Sistem Informasi Praktik Dokter',array('class'=>'navbar-brand'));?>
+          <?php echo anchor('depan','<i class="glyphicon glyphicon-plus"></i> SI Praktik Dokter',array('class'=>'navbar-brand'));?>
         </div>
         <div class="navbar-collapse collapse navbar-inverse-collapse">
           <ul class="nav navbar-nav">
@@ -110,6 +110,15 @@
                     <li> <?php echo anchor('pengguna','Data Pengguna');?></li>
                   </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laporan <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li> <?php echo anchor('laporan','Laporan Pasien Per Periode');?></li>
+                      <li> <?php echo anchor('pasien/cetak','Laporan Pasien Keseluruhan',['target'=>'_blank']);?></li>
+                      <li> <?php echo anchor('terapi/history','Laporan History Pemeriksaan Pasien');?></li>
+                      
+                    </ul>
+                </li>
               <?php
             }elseif($level=="petugas"){
               ?>
@@ -131,6 +140,7 @@
                       <li> <?php echo anchor('terapi/index','Antrian Pasien');?></li>
                     </ul>
                   </li>
+
               <?php
             }elseif($level=="dokter"){
               ?>

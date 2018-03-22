@@ -119,9 +119,7 @@ class Pasien extends CI_Controller{
             $this->load->library('upload'); //panggil libary upload
 
             $extension = pathinfo($_FILES['rm_upload']['name'], PATHINFO_EXTENSION);
-            print_r($extension);
-            exit();
-
+        
             $namafile                = "file_" . $nama.'_'.time().'.'.$extension; //nama file + fungsi time
             $config['upload_path']   = FCPATH.'assets/img/pasien'; //Folder untuk menyimpan hasil upload
             $config['allowed_types'] = 'jpg|png|jpeg|bmp|pdf'; //type yang dapat diakses bisa anda sesuaikan

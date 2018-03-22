@@ -47,6 +47,7 @@ class M_registrasi extends CI_Model{
 		$this->db->select('*');
 		$this->db->join('pasien','pasien.id = registrasi.pasien_id','left');
 		$this->db->where('registrasi.status',0);
+		$this->db->where('tgl_reg',date('y-m-d'));
 		$this->db->order_by('registrasi.id','ASC');
 
 		$query = $this->db->get('registrasi');

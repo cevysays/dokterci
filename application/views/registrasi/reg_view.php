@@ -14,7 +14,7 @@
 				<thead>
 					<tr>
 						<th>No. Urut</th>
-						<th>No. Registrasi</th>
+						<!-- <th>No. Registrasi</th> -->
 						<th>Nama Pasien</th>
 						<th>Alamat</th>
 						<th>Umur</th>
@@ -30,7 +30,7 @@
 						?>
 					<tr>
 						<td><span class="label label-danger"><?php echo $no;?></span></td>
-						<td><?php echo $row->no_reg;?></td>
+						<!-- <td><?php echo $row->no_reg;?></td> -->
 						<td><?php echo $row->namalengkap;?></td>
 						<td><?php echo $row->alamat;?></td>
 						<td><?php echo $row->umur;?>Th</td>
