@@ -208,7 +208,9 @@
 										<th><?php //echo form_input(array('id'=>'formdiagnosa','class'=>'form-control'));?>
 											<select name="diagnosa" id="formdiagnosa" class="form-control select2">
 									<?php foreach ($list_diagnosa as $item):?>
-										<option value="<?=$item->diagnosa_id ?>">
+										<!-- <option 
+										value="<?=$item->diagnosa_id ?>"> -->
+										<option value="<?=$item->nama_penyakit ?>">
 											<?= $item->nama_penyakit ?>
 											</option>
 									<?php endforeach ?>
@@ -232,7 +234,9 @@
 
 									<select name="tindakan[]" id="formtindakan" class="form-control select2">
 									<?php foreach ($list_tindakan as $item):?>
-										<option value="<?=$item->tindakan_id ?>">
+										<!-- <option 
+										value="<?=$item->tindakan_id ?>"> -->
+										<option value="<?=$item->nama_tindakan ?>">
 											<?= $item->nama_tindakan ?>
 											</option>
 									<?php endforeach ?>

@@ -70,7 +70,7 @@ class Pasien extends CI_Controller{
 
             $namafile                = "file_" . $nama.'_'.time().'.'.$extension; //nama file + fungsi time
             $config['upload_path']   = FCPATH.'assets/img/pasien'; //Folder untuk menyimpan hasil upload
-            $config['allowed_types'] = 'jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+            $config['allowed_types'] = 'jpg|png|jpeg|bmp|pdf'; //type yang dapat diakses bisa anda sesuaikan
             $config['max_size']      = '3072'; //maksimum besar file 3M
             $config['max_width']     = '5000'; //lebar maksimum 5000 px
             $config['max_height']    = '5000'; //tinggi maksimu 5000 px
@@ -113,7 +113,27 @@ class Pasien extends CI_Controller{
     			$umur = $this->input->post('umur');
     			$alamat = $this->input->post('alamat');
     			$telp = $this->input->post('telp');
-    			$riwayat = $this->input->post('riwayat');
+    			//$riwayat = $this->input->post('riwayat');
+
+                //disini upload file
+            $this->load->library('upload'); //panggil libary upload
+
+            $extension = pathinfo($_FILES['rm_upload']['name'], PATHINFO_EXTENSION);
+            print_r($extension);
+            exit();
+
+            $namafile                = "file_" . $nama.'_'.time().'.'.$extension; //nama file + fungsi time
+            $config['upload_path']   = FCPATH.'assets/img/pasien'; //Folder untuk menyimpan hasil upload
+            $config['allowed_types'] = 'jpg|png|jpeg|bmp|pdf'; //type yang dapat diakses bisa anda sesuaikan
+            $config['max_size']      = '3072'; //maksimum besar file 3M
+            $config['max_width']     = '5000'; //lebar maksimum 5000 px
+            $config['max_height']    = '5000'; //tinggi maksimu 5000 px
+            $config['file_name']     = $namafile; //nama yang terupload nantinya
+
+            $this->upload->initialize($config); //initialisasi upload dari array config
+            $file_image_poto = $this->upload->data();
+
+            $this->upload->do_upload('rm_upload');
 
     			$data = array(
     				'namalengkap'=>$nama,
@@ -126,6 +146,9 @@ class Pasien extends CI_Controller{
 
     			$this->pasien->update_pasien($data, $id);
     			$this->session->set_flashdata('pesan', '<div id="pesan" class="alert alert-success"><b>Sukses! </b> Data berhasil diubah.</div>');
+                print_r($data);
+                exit();
+
     			redirect('pasien');
 
     		}else{

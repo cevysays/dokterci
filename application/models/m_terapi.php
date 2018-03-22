@@ -38,6 +38,7 @@ class M_terapi extends CI_Model{
 			"DATE_FORMAT(tgl_reg,'%d-%m-%Y') as tanggal",
 			'pasien.*'));
 		$this->db->join('pasien','pasien.id = registrasi.pasien_id','LEFT');
+		$this->db->where('tampil',1);
 		$this->db->order_by('registrasi.id','DESC');
 
 		$query = $this->db->get('registrasi', $num, $offset);
