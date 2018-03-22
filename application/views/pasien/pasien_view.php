@@ -13,11 +13,13 @@
 	  			<?php echo $this->session->flashdata('pesan');?>
 	  		<div id="unseen">
 	  			<form action="<?php echo site_url('pasien/search_keyword');?>" method = "post">
-					<input size="25"  placeholder="Cari NRP Pasien ex: 00001" type="text" name = "keyword" />
+					<input size="25"  placeholder="Cari Pasien" type="text" name = "keyword" />
 					<input  type="submit" value = "Cari" />
 				</form>
 	  			<!-- <input type="search" class="light-table-filter" data-table="order-table" placeholder="Cari Data.." /> -->
-	    		<table class="table table-bordered table-hover table-condensed order-table ">
+
+	    		<table id="search" class="table table-bordered table-hover table-condensed order-table">
+	    
 				<thead>
 					<tr>
 						<th>No. Rekam</th>
@@ -41,7 +43,7 @@
 						<td><?php echo $row->id;?></td>
 						<td><?php echo $row->namalengkap;?></td>
 						<td><?php echo $row->alamat;?></td>
-						<td><?php echo $row->umur;?></td>
+						<td><?php echo $row->umur;?> th</td>
 						<td><?php echo $row->riwayat;?></td>
 						<td>
 						<?php if($row->rm_upload!=''): ?>

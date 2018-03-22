@@ -38,7 +38,7 @@
 						<td><?php echo 'NRP'.$row->id;?></td>
 						<td><?php echo $row->namalengkap;?></td>
 						<td><?php echo $row->alamat;?></td>
-						<td><?php echo $row->umur;?></td>
+						<td><?php echo $row->umur;?> th</td>
 						<td><?php echo $row->lastinput;?></td>
 						<td><?php echo anchor('pasien/ubah/'.$row->id,'<i class="glyphicon glyphicon-pencil"></i>',array('class'=>'btn btn-sm btn-info', 'title'=>'Ubah Pasien'));?>
 						<?php echo anchor('pasien/hapus/'.$row->id,'<i class="glyphicon glyphicon-trash"></i>',array('class'=>'btn btn-sm btn-danger','title'=>'Hapus Pasien','onclick'=>"return confirm('Yakin mau hapus data ini?')"));?>

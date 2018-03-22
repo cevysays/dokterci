@@ -262,9 +262,10 @@
 			  				<th><?php echo form_submit(array('type'=>'button','id'=>'simpanterapi','value'=>'Tambah','class'=>'btn btn-info'));?></th>-->
 
 			  				<th>
-			  					<input type="file" class="filestyle" name="rm_upload">
+			  					<input type="file" class="filestyle" name="resep">
 
 			  				</th>
+			  				<th><?php echo form_submit(array('type'=>'button','id'=>'resep','value'=>'Upload','class'=>'btn btn-info'));?></th>
 
 			  			</tr>
 			  		</table>

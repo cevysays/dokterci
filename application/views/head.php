@@ -12,6 +12,7 @@
     <link href="<?php echo base_url();?>assets/plugin/easyautocomplete/easy-autocomplete.themes.min.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/css/select2.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
 
     <style type="text/css">
         body{ padding: 70px 0px; }
@@ -22,6 +23,7 @@
 	
 
   <script type="text/javascript" async="" src="<?php echo base_url();?>assets/js/script.js"></script>
+  
 
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-1.8.3.js"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/highcharts.js"></script>
@@ -36,7 +38,9 @@
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.min.js">"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.full.js">"></script>  
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.full.min.js">"></script>  
-  
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 
   <script type="text/javascript">
@@ -59,6 +63,16 @@
   });
   });
   </script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#search').DataTable();
+    $('#search tbody').on('click', 'tr', function () {
+        var data = table.row( this ).data();
+        alert( 'You clicked on '+data[0]+'\'s row' );
+    } );
+});
+</script>
 
 
       	

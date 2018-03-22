@@ -33,6 +33,7 @@ tr td{
     <center>Praktik Dokter dr. Hj. Siti Sundari, SpM,. Mkes <br> Jln. Soeradjitirtonegoro No.67, Bendogantungan, Klaten <br> Telp. (0272) 323210 </center>";?><hr>
     <td style="border-bottom:solid 1px #000000"><span class="style2">
     <?php echo "Diperiksa oleh : ".$this->session->userdata('namalengkap')?><br />
+    <?php echo "Divisi : "?><br />
    <br>  
     </span></td>
   </tr>

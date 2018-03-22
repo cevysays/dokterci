@@ -84,6 +84,8 @@ function tampil_diagnosa($noreg){
 
 
 function tampil_history_diagnosa($pasien){
+	print_r($pasien);
+	exit();
 	$this->db->select(array(
 		"DATE_FORMAT(registrasi.tgl_reg, '%d-%m-%Y') as tanggal",
 		'diagnosa.*'

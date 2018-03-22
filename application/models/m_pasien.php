@@ -26,7 +26,10 @@ class M_pasien extends CI_Model{
 
 	function search($keyword)
     {
-        $this->db->like('id',$keyword);
+        $this->db->or_like('id',$keyword);
+        $this->db->or_like('namalengkap',$keyword);
+        $this->db->or_like('alamat',$keyword);                         
+        $this->db->or_like('umur',$keyword);
         $query =  $this->db->get('pasien');
         return $query->result();
     }
