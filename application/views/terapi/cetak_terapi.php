@@ -88,11 +88,12 @@ tr td{
     <td align="right" style="border-top:1px solid #000;border-bottom:1px solid #000;">Biaya(Rp)</td>
   </tr>
   <?php 
+  $sum = 0;
     if(empty($tindakan)){
       echo '<tr><th colspan="2">Data tidak tersedia.</th></tr>';
     }else{
       $no = 1;
-      $sum = 0;
+      
       foreach($tindakan as $rowtindakan):
         ?>
         <tr>
