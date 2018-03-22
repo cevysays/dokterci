@@ -119,8 +119,7 @@ class Pasien extends CI_Controller{
             $this->load->library('upload'); //panggil libary upload
 
             $extension = pathinfo($_FILES['rm_upload']['name'], PATHINFO_EXTENSION);
-            print_r($extension);
-            exit();
+            
 
             $namafile                = "file_" . $nama.'_'.time().'.'.$extension; //nama file + fungsi time
             $config['upload_path']   = FCPATH.'assets/img/pasien'; //Folder untuk menyimpan hasil upload
@@ -146,9 +145,6 @@ class Pasien extends CI_Controller{
 
     			$this->pasien->update_pasien($data, $id);
     			$this->session->set_flashdata('pesan', '<div id="pesan" class="alert alert-success"><b>Sukses! </b> Data berhasil diubah.</div>');
-                print_r($data);
-                exit();
-
     			redirect('pasien');
 
     		}else{
