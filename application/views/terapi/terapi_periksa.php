@@ -210,7 +210,7 @@
 									<?php foreach ($list_diagnosa as $item):?>
 										<!-- <option 
 										value="<?=$item->diagnosa_id ?>"> -->
-										<option value="<?=$item->nama_penyakit ?>">
+										<option value="<?=$item->diagnosa_id ?>">
 											<?= $item->nama_penyakit ?>
 											</option>
 									<?php endforeach ?>
@@ -236,7 +236,7 @@
 									<?php foreach ($list_tindakan as $item):?>
 										<!-- <option 
 										value="<?=$item->tindakan_id ?>"> -->
-										<option value="<?=$item->nama_tindakan ?>">
+										<option value="<?=$item->tindakan_id ?>">
 											<?= $item->nama_tindakan ?>
 											</option>
 									<?php endforeach ?>
