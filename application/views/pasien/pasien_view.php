@@ -12,14 +12,10 @@
 	  			<hr>
 	  			<?php echo $this->session->flashdata('pesan');?>
 	  		<div id="unseen">
-	  			<form action="<?php echo site_url('pasien/search_keyword');?>" method = "post">
-					<input size="25"  placeholder="Cari NRP Pasien ex: 00001" type="text" name = "keyword" />
-					<input  type="submit" value = "Cari" />
-				</form>
-	  			<!-- <input type="search" class="light-table-filter" data-table="order-table" placeholder="Cari Data.." /> -->
-	    		<table class="table table-bordered table-hover table-condensed order-table ">
+	    		<table class="table table-bordered table-hover table-condensed data-table order-table ">
 				<thead>
 					<tr>
+						<th>No</th>
 						<th>No. Rekam</th>
 						<th>Nama Pasien</th>
 						<th>Alamat</th>
@@ -34,10 +30,11 @@
 				<?php if(empty($query)){
 					echo '<tr><td colspan="6">Data tidak tersedia.</td></tr>';
 					}else{
-						
+						$no=1;
 						foreach($query as $row) :
 						?>
 					<tr> 
+						<td><?php echo $no++;?></td>
 						<td><?php echo $row->id;?></td>
 						<td><?php echo $row->namalengkap;?></td>
 						<td><?php echo $row->alamat;?></td>
@@ -62,7 +59,7 @@
 				</tbody>
 			</table>
 			<ul class="pagination pagination-large pull-right">
-				<?php echo $halaman;?>
+				<?php // echo $halaman;?>
 			</ul>
 			</div>
 	 	</div>
