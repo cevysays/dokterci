@@ -12,13 +12,13 @@
 	  			<hr>
 	  			<?php echo $this->session->flashdata('pesan');?>
 	  		<div id="unseen">
-	  			<form action="<?php echo site_url('pasien/search_keyword');?>" method = "post">
+	  			<!-- <form action="<?php echo site_url('pasien/search_keyword');?>" method = "post">
 					<input size="25"  placeholder="Cari Pasien" type="text" name = "keyword" />
 					<input  type="submit" value = "Cari" />
-				</form>
+				</form> -->
 	  			<!-- <input type="search" class="light-table-filter" data-table="order-table" placeholder="Cari Data.." /> -->
 
-	    		<table id="search" class="table table-bordered table-hover table-condensed order-table">
+	    		<table id="DataTable" class="table table-bordered table-hover table-condensed order-table">
 	    
 				<thead>
 					<tr>
@@ -63,9 +63,9 @@
 					?>
 				</tbody>
 			</table>
-			<ul class="pagination pagination-large pull-right">
+			<!-- <ul class="pagination pagination-large pull-right">
 				<?php echo $halaman;?>
-			</ul>
+			</ul> -->
 			</div>
 	 	</div>
 	</div>

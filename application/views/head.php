@@ -21,10 +21,8 @@
       </style>
 
 	
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" async="" src="<?php echo base_url();?>assets/js/script.js"></script>
-  
-
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-1.8.3.js"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/highcharts.js"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap-datepicker3.js"></script>
@@ -33,13 +31,12 @@
   <script type="text/javascript" src="<?php echo base_url();?>assets/plugin/fancybox/jquery.fancybox-1.3.4.js">"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/plugin/fancybox/jquery.mousewheel-3.0.4.pack.js">"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/plugin/easyautocomplete/jquery.easy-autocomplete.min.js">"></script>
-
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.js">"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.min.js">"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.full.js">"></script>  
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/select2.full.min.js">"></script>  
-  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/datatables.min.js">"></script>  
+  <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script> -->
 
 
 
@@ -66,8 +63,8 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#search').DataTable();
-    $('#search tbody').on('click', 'tr', function () {
+    $('#DataTable').DataTable();
+    $('#DataTable tbody').on('click', 'tr', function () {
         var data = table.row( this ).data();
         alert( 'You clicked on '+data[0]+'\'s row' );
     } );

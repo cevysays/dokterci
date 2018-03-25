@@ -16,15 +16,15 @@ class Pasien extends CI_Controller{
 		$config['base_url'] = site_url().'/pasien/index';
 		
 		$config['total_rows'] = $get->num_rows();
-		$config['per_page'] = 10;
-		$config['next_page'] = '&raquo;';
-		$config['prev_page'] = '&laquo;';
-		$config['first_page'] = 'Awal';
-		$config['last_page'] = 'Akhir';
+		// $config['per_page'] = 10;
+		// $config['next_page'] = '&raquo;';
+		// $config['prev_page'] = '&laquo;';
+		// $config['first_page'] = 'Awal';
+		// $config['last_page'] = 'Akhir';
 
 		$this->pagination->initialize($config);
 
-		$data['query'] = $this->pasien->tampil_pasien($config['per_page'],$id );
+        $data['query'] = $this->pasien->tampil_pasien($config['total_rows'],$id );
 		$this->uri->segment(3);
 
 		$data['halaman'] = $this->pagination->create_links();
