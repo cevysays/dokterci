@@ -1,0 +1,9 @@
+diff a/application/views/head.php b/application/views/head.php	(rejected hunks)
+@@ -12,6 +12,7 @@
+     <link href="<?php echo base_url();?>assets/plugin/easyautocomplete/easy-autocomplete.themes.min.css" rel="stylesheet">
+     <link href="<?php echo base_url();?>assets/css/select2.css" rel="stylesheet">
+     <link href="<?php echo base_url();?>assets/css/select2.min.css" rel="stylesheet">
++    <!-- <link href="<?php echo base_url();?>assets/css/datatables.min.csss" rel="stylesheet"> -->
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+ 
+     <style type="text/css">
