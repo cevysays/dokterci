@@ -5,9 +5,12 @@
 	  		<div class="panel-heading">
 	    		<h3 class="panel-title"><b>Daftar History Pasien</b></h3>
 	  		</div>
-	  		<div class="panel-body">
-	  		<!-- <div id="unseen"> -->
-	    		<table id="DataTable" class="table table-bordered table-hover table-condensed">
+	  			
+	  			<?php echo $this->session->flashdata('pesan');?>
+
+	  		<div id="unseen">
+	    		<table class="table table-bordered table-hover table-condensed data-table order-table">
+	    			<!-- <table id="DataTable" class="table table-bordered table-hover table-condensed"> -->
 				<thead>
 					<tr>
 						<th>No. Registrasi</th>
@@ -36,12 +39,13 @@
 						endforeach;
 					}
 					?>
-				</tbody>
+				</tbody>				
+
 			</table>
-			<!-- <ul class="pagination pagination-large pull-right">
-				<?php echo $halaman;?>
-			</ul> -->
-			<!-- </div> -->
+			<ul class="pagination pagination-large pull-right">
+				<?php // echo $halaman;?>
+			</ul>
+			</div>
 	 	</div>
 	</div>
 </div>

@@ -6,20 +6,13 @@
 	    		<h3 class="panel-title"><b>Data Master Tindakan</b></h3>
 	  		</div>
 	  		<div class="panel-body">
-		  		<?php echo anchor('pasien/tambah','<i class="glyphicon glyphicon-ok"></i> Tambah Pasien',array('class'=>'btn btn-primary btn-md'));?>
-		  		<?php echo anchor('pasien/cetak','<i class="glyphicon glyphicon-print"></i> Cetak Data Pasien',array('class'=>'btn btn-primary btn-md', 'target'=>'_blank'));?>
+		  		<?php echo anchor('master_tindakan/tambah_tindakan','<i class="glyphicon glyphicon-ok"></i> Tambah Data Master Tindakan',array('class'=>'btn btn-primary btn-md'));?>
+		  		<?php echo anchor('master_tindakan/cetak','<i class="glyphicon glyphicon-print"></i> Cetak Data Master Tindakan',array('class'=>'btn btn-primary btn-md', 'target'=>'_blank'));?>
 	  			
 	  			<hr>
-	  			
-	  		<div id="unseen">
-	  			<!-- <form action="<?php echo site_url('pasien/search_keyword');?>" method = "post">
-					<input size="25"  placeholder="Cari Pasien" type="text" name = "keyword" />
-					<input  type="submit" value = "Cari" />
-				</form> -->
-	  			<!-- <input type="search" class="light-table-filter" data-table="order-table" placeholder="Cari Data.." /> -->
-
-	    		<table id="DataTable" class="table table-bordered table-hover table-condensed order-table">
-	    
+	  			<?php echo $this->session->flashdata('pesan');?>
+		  		<div id="unseen">
+	    		<table class="table table-bordered table-hover table-condensed data-table order-table ">
 				<thead>
 					<tr>
 	 				<th>Kode ICD9</th>
@@ -51,9 +44,9 @@
 					?>
 				</tbody>
 			</table>
-			<!-- <ul class="pagination pagination-large pull-right">
-				<?php echo $halaman;?>
-			</ul> -->
+			<ul class="pagination pagination-large pull-right">
+				<?php // echo $halaman;?>
+			</ul>
 			</div>
 	 	</div>
 	</div>
