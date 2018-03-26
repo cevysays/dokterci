@@ -33,6 +33,14 @@ class Terapi extends CI_Controller{
 
 			$data = array('status'=>1);
 
+			$array =[
+				'no_reg'=>$this->input->post('noreg'),
+				'id_user'=>$this->input->post('tampil'),
+				'tanggal_periksa'=>date('Y-m-d'),
+			];
+
+			$this->terapi->amburadul_data('diperiksa_oleh',$array);
+
 			$this->terapi->selesai_periksa($data, $noreg);
 			redirect('terapi/cetak/'.$noreg.'/'.$nomerekammedis);
 
@@ -55,6 +63,7 @@ class Terapi extends CI_Controller{
 		$data['tindakan'] = $this->terapi->tampil_tindakan($noreg);
 		$data['diagnosa'] = $this->terapi->tampil_diagnosa($noreg);
 		$data['terapi'] = $this->terapi->tampil_terapi($noreg);
+		$data['dokter'] = $this->terapi->dokter($noreg);
 
 		$this->load->view('terapi/cetak_terapi', $data);
 	}

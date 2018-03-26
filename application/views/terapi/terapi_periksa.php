@@ -134,7 +134,7 @@
 				</div>
 				<div class="panel-body">
 					<?php echo form_open('terapi/periksa/'.$pasien->no_reg.'/'.$pasien->id,['target'=>'_blank']);?>
-					<input type="hidden" id="idreg" value="<?php echo $pasien->no_reg;?>">
+					<input type="hidden" id="idreg" name="noreg" value="<?php echo $pasien->no_reg;?>">
 					<input type="hidden" id="pasien" value="<?php echo $pasien->id;?>">
 					<table class="table table-striped">
 						<tr>

@@ -26,9 +26,6 @@ class M_terapi extends CI_Model{
 		$this->db->query('select a.id, a.namalengkap, a.umur, a.alamat, a.telp, b.no_reg 
 			from pasien a inner join registrasi b 
 			on a.id=b.pasien_id where b.no_reg=REG000002');
-
-
-
 	}
 
 	function tampil_history($num, $offset){
@@ -120,8 +117,14 @@ function tampil_history_tindakan($pasien){
 function tampil_terapi($noreg){
 	$this->db->order_by('id','DESC');
 	$query = $this->db->get_where('terapi', array('no_reg'=>$noreg));
-
 	return $query->result();
+}
+
+function dokter($noreg){
+$query = $this->db->query("SELECT id_user,namalengkap FROM `diperiksa_oleh` join users on diperiksa_oleh.id_user = users.id WHERE no_reg =".$noreg." and tanggal_periksa = '".date('Y-m-d')."'
+");
+
+ return $query->row();
 }
 
 
