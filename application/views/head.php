@@ -40,8 +40,6 @@
 
 <script type="text/javascript" src="<?php echo base_url();?>assets/plugin/dataTables/datatables.min.js">"></script>  
 
-
-
 <script type="text/javascript">
 
   window.setTimeout(function(){
@@ -65,8 +63,6 @@
     });
   });
 </script>
-
-
 
 </head>
 <body>

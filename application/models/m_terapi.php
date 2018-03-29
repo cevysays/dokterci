@@ -81,13 +81,14 @@ function tampil_diagnosa($noreg){
 
 
 function tampil_history_diagnosa($pasien){
-	print_r($pasien);
-	exit();
+	// print_r($pasien);
+	// exit();
 	$this->db->select(array(
 		"DATE_FORMAT(registrasi.tgl_reg, '%d-%m-%Y') as tanggal",
-		'diagnosa.*'
+		'diagnosa.*,master_diagnosa.nama_penyakit'
 	), FALSE);
 	$this->db->join('registrasi','registrasi.no_reg = diagnosa.no_reg');
+	$this->db->join('master_diagnosa','master_diagnosa.diagnosa_id = diagnosa.diagnosa');
 	$query = $this->db->get_where('diagnosa', array('diagnosa.pasien_id'=>$pasien));
 
 	return $query->result();
@@ -105,9 +106,10 @@ function tampil_tindakan($noreg){
 function tampil_history_tindakan($pasien){
 	$this->db->select(array(
 		"DATE_FORMAT(registrasi.tgl_reg, '%d-%m-%Y') as tanggal",
-		'tindakan.*'
+		'tindakan.*, master_tindakan.nama_tindakan'
 	),FALSE);
 	$this->db->join('registrasi','registrasi.no_reg = tindakan.no_reg');
+	$this->db->join('master_tindakan','master_tindakan.tindakan_id = tindakan.tindakan');
 	$query = $this->db->get_where('tindakan', array('tindakan.pasien_id'=>$pasien));
 
 	return $query->result();
@@ -123,7 +125,7 @@ function tampil_terapi($noreg){
 function dokter($noreg){
 $query = $this->db->query("SELECT id_user,namalengkap FROM `diperiksa_oleh` join users on diperiksa_oleh.id_user = users.id WHERE no_reg =".$noreg." and tanggal_periksa = '".date('Y-m-d')."'
 ");
-
+// var_dump($noreg);die;
  return $query->row();
 }
 

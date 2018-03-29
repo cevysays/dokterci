@@ -90,7 +90,7 @@
 			  						?>
 			  						<tr>
 							          <td><?php echo $rowdiagnosa->tanggal;?></td>
-							          <td><?php echo $rowdiagnosa->diagnosa;?></td>
+							          <td><?php echo $rowdiagnosa->nama_penyakit;?></td>
         							</tr>
 			  						<?php
 			  						endforeach;
@@ -103,7 +103,7 @@
 			  		<table class="table">
 			  			<tr>
 			  				<th>Tanggal</th>
-			  				<th>Tindakan</th>
+			  				<th>Tindakan</th>			  				
 			  			</tr>
 			  			<?php
 			  				if(empty($tindakan)){
@@ -113,7 +113,7 @@
 			  						?>
 			  						<tr>
 			  						  <td><?php echo $rowtindakan->tanggal;?></td>
-							          <td><?php echo $rowtindakan->tindakan;?></td>
+							          <td><?php echo $rowtindakan->nama_tindakan;?></td>							    
         							</tr>
 			  						<?php
 			  						endforeach;
