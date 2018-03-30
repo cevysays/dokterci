@@ -257,5 +257,30 @@ class Terapi extends CI_Controller{
 		// print_r($x);
 		// echo "</pre>";
 	}
+
+
+	 public function uploadgambar(){
+
+	 	$status="test";
+	 	$msg = print_r($_FILES);
+
+        // $config['upload_path'] = './assets/img/resep/';
+        // $config['allowed_types'] = 'gif|jpg|png';
+ 
+        // $this->load->library('upload', $config);
+ 
+        // if ( ! $this->upload->do_upload('gambar_resep')){
+        //     $status = "error";
+        //     $msg = $this->upload->display_errors();
+        // }
+        // else{
+        //     $dataupload = $this->upload->data();
+        //     $status = "success";
+        //     $msg = $dataupload['file_name']." berhasil diupload";
+        // }
+        $this->output->set_content_type('application/json')->set_output(json_encode(array('status'=>$status,'msg'=>$msg)));
+    }
+ 
+
 //end of class
 }

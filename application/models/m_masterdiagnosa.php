@@ -5,12 +5,7 @@ class M_masterdiagnosa extends CI_Model{
 		parent::__construct();
 	}
 
-	function json() {
-        $this->datatables->select('diagnosa_id,kode_icd,nama_penyakit');
-        $this->datatables->from('master_diagnosa');
-        $this->datatables->add_column('view', '<a href="world/edit/$1">edit</a> | <a href="world/delete/$1">delete</a>', 'ID');
-        return $this->datatables->generate();
-    }
+	
 
 	function simpan($data){
 		$this->db->insert('master_diagnosa', $data);
@@ -21,7 +16,7 @@ class M_masterdiagnosa extends CI_Model{
 			'diagnosa_id',
 			'kode_icd',
 			'nama_penyakit',
-			), FALSE);
+		), FALSE);
 		
 		$this->db->order_by('kode_icd', 'DESC');
 		if ($num!='' && $offset!='') {
@@ -65,7 +60,7 @@ class M_masterdiagnosa extends CI_Model{
 			'diagnosa_id',
 			'kode_icd',
 			'nama_penyakit',
-			), FALSE);
+		), FALSE);
 		
 		$this->db->like('kode_icd', $keyword);
 		$this->db->or_like('nama_penyakit', $keyword);
@@ -73,5 +68,43 @@ class M_masterdiagnosa extends CI_Model{
 		$query = $this->db->get('master_diagnosa');
 		return $query->result();
 	}
+
+//datatables serverside mulai dari sini
+
+	public function get_items()
+	{
+		$draw = intval($this->input->get("draw"));
+		$start = intval($this->input->get("start"));
+		$length = intval($this->input->get("length"));
+
+
+		$query = $this->db->get('master_diagnosa');
+
+
+		$data = [];
+
+
+		foreach($query->result() as $r) {
+			$data[] = array(
+				$r->kode_icd,
+				$r->nama_penyakit,
+				'<a href="'.site_url().'/master_diagnosa/ubah/'.$r->diagnosa_id.'" class="btn btn-sm btn-info" title="Ubah Data"><i class="glyphicon glyphicon-pencil"></i></a>
+				<a href="'.site_url().'/master_diagnosa/hapus/'.$r->diagnosa_id.'" class="btn btn-sm btn-danger" title="Ubah Data" onclick="return confirm(\'Yakin mau hapus data ini?\')"><i class="glyphicon glyphicon-trash"></i></a>',
+			);
+		}
+
+
+		$result = array(
+			"draw" => $draw,
+			"recordsTotal" => $query->num_rows(),
+			"recordsFiltered" => $query->num_rows(),
+			"data" => $data
+		);
+
+
+		echo json_encode($result);
+		exit();
+	}
+
 
 }
