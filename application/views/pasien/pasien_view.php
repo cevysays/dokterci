@@ -17,11 +17,13 @@
 					<tr>
 						<th>No</th>
 						<th>No. Rekam</th>
-						<th>Nama Pasien</th>
-						<th>Alamat</th>
+						<th width="10%">Nama Pasien</th>
+						<th>JK</th>
 						<th>Umur</th>
-						<th>Riwayat Penyakit</th>
-						<th>Berkas Rekam Medis</th>
+						<th >Riwayat Penyakit</th>
+						<th>Berkas RM</th>
+						<th>Alamat</th>
+						<th>Telp</th>
 						<th>Tgl. Register</th>
 						<th>Kelola</th>
 					</tr>
@@ -37,8 +39,8 @@
 						<td><?php echo $no++;?></td>
 						<td><?php echo $row->id;?></td>
 						<td><?php echo $row->namalengkap;?></td>
-						<td><?php echo $row->alamat;?></td>
-						<td><?php echo $row->umur;?></td>
+						<td><?php echo $row->jenis_kelamin;?></td>
+						<td><?php echo $row->umur;?> th</td>
 						<td><?php echo $row->riwayat;?></td>
 						<td>
 						<?php if($row->rm_upload!=''): ?>
@@ -46,6 +48,8 @@
 					<?php endif;?>
 
 						</td>
+						<td><?php echo $row->alamat;?></td>
+						<td><?php echo $row->telp;?></td>
 						<td><?php echo $row->tanggal;?></td>
 						<td width="12%"><?php echo anchor('pasien/ubah/'.$row->id,'<i class="glyphicon glyphicon-pencil"></i>',array('class'=>'btn btn-sm btn-info', 'title'=>'Ubah Pasien'));?>
 						<?php echo anchor('pasien/hapus/'.$row->id,'<i class="glyphicon glyphicon-trash"></i>',array('class'=>'btn btn-sm btn-danger','title'=>'Hapus Pasien','onclick'=>"return confirm('Yakin mau hapus data ini?')"));?>

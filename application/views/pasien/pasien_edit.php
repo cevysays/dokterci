@@ -33,6 +33,23 @@
 									'value'=>$query->umur));?>
 								</th>
 							</tr>
+							<tr>
+	    						<th>Jenis Kelamin</th>
+	    						<th>:</th>
+	    						<td>
+	    						<select name="jenis_kelamin" class="form-control">
+	    						<?php
+	    							$role = array(
+	    								'L'=>'L',
+	    								'P'=>'P',
+	    								);
+	    							foreach($role as $row=>$value):
+	    								echo '<option value="'.$row.'">'.$value.'</option>';
+	    								endforeach;
+	    						?>
+	    						</select>
+	    						</td>
+	    					</tr>
 							<tr>	
 								<th>Alamat</th>
 								<th>:</th>

@@ -25,7 +25,7 @@ tr td{
 }
 </style>
   </head>
-  <body>
+  <body onload="window.print()">
 
   <table width="700" border="0" cellspacing="0" cellpadding="2" align="center">
   <tr>

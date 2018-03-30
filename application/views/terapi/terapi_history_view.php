@@ -15,8 +15,10 @@
 					<tr>
 						<th>No. Registrasi</th>
 						<th>Nama Pasien</th>
-						<th>Alamat</th>
+						<th>JK</th>
 						<th>Umur</th>
+						<th>Alamat</th>
+						<th>Telp</th>
 						<th>Tgl. Periksa Terakhir</th>
 						<th>Aksi</th>
 					</tr>
@@ -30,8 +32,10 @@
 					<tr>
 						<td><?php echo $row->no_reg;?></td>
 						<td><?php echo $row->namalengkap;?></td>
-						<td><?php echo $row->alamat;?></td>
+						<td><?php echo $row->jenis_kelamin;?></td>
 						<td><?php echo $row->umur;?> Th</td>
+						<td><?php echo $row->alamat;?></td>
+						<td><?php echo $row->telp;?></td>
 						<td><?php echo $row->tanggal;?></td>
 						<td><?php echo anchor('terapi/detailhistory/'.$row->id,'<i class="glyphicon glyphicon-search"></i> Detail',array('class'=>'btn btn-sm btn-info'));?></td>
 					</tr>	

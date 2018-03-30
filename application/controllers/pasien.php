@@ -57,7 +57,8 @@ class Pasien extends CI_Controller{
 		if(isset($_POST['submit'])){
 
 			$nama = $this->input->post('nama');
-			$umur = $this->input->post('umur');
+            $umur = $this->input->post('umur');
+			$jenis_kelamin = $this->input->post('jenis_kelamin');
 			$alamat = $this->input->post('alamat');
 			$telp = $this->input->post('telp');
 			//$riwayat = $this->input->post('riwayat');
@@ -84,6 +85,7 @@ class Pasien extends CI_Controller{
             $data = array(
             	'namalengkap'=>$nama,
             	'umur'=>$umur,
+                'jenis_kelamin'=>$jenis_kelamin,
             	'alamat'=>$alamat,
             	'telp'=>$telp,
             	'lastinput'=>$tgl,
@@ -111,6 +113,7 @@ class Pasien extends CI_Controller{
 
     			$nama = $this->input->post('nama');
     			$umur = $this->input->post('umur');
+                $jenis_kelamin = $this->input->post('jenis_kelamin');
     			$alamat = $this->input->post('alamat');
     			$telp = $this->input->post('telp');
     			//$riwayat = $this->input->post('riwayat');
@@ -136,7 +139,8 @@ class Pasien extends CI_Controller{
 
     			$data = array(
     				'namalengkap'=>$nama,
-    				'umur'=>$umur,
+                    'umur'=>$umur,
+    				'jenis_kelamin'=>$jenis_kelamin,
     				'alamat'=>$alamat,
     				'telp'=>$telp,
     				'riwayat'=>$this->input->post('riwayat'),

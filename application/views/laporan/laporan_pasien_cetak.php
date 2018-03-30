@@ -26,7 +26,7 @@ tr td{
 }
 </style>
 	</head>
-	<body>
+	<body onload="window.print()">
 		
     <div class="title" align="center">
       <?php echo "<center>PRAKTIK DOKTER dr. Hj. Siti Sundari, SpM,. Mkes</center>";?><br>

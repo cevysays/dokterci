@@ -11,10 +11,12 @@ class M_pasien extends CI_Model{
 		$this->db->select(array(
 			'id',
 			'namalengkap',
+			'jenis_kelamin',
 			'umur',
 			'riwayat',
 			'rm_upload',
 			'alamat',
+			'telp',
 			"DATE_FORMAT(lastinput,'%d-%m-%Y') as tanggal"
 			), FALSE);
 		$this->db->where('tampil', 1);

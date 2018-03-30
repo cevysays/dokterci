@@ -55,10 +55,12 @@ tr td{
 
         <table class="table" align="center">
           <tr class="info">
-              <th width="20%">NRP</th>
+              <th width="10%">NRP</th>
               <th width="30%">Nama</th>
-              <th width="10%">Umur</th>
+              <th width="5%">Jenis Kelamin</th>
+              <th width="5%">Umur</th>
               <th width="50%">Alamat</th>
+              <th width="50%">Telp</th>
           </tr>
 
           <tbody>
@@ -70,8 +72,10 @@ tr td{
           <tr>
             <td><?php echo $rowcetak->id;?></td>
             <td><?php echo $rowcetak->namalengkap;?></td>
+            <td><?php echo $rowcetak->jenis_kelamin;?></td>
             <td><?php echo $rowcetak->umur;?> Th</td>
             <td><?php echo $rowcetak->alamat;?> </td> 
+            <td><?php echo $rowcetak->telp;?> </td> 
           </tr> 
 
           <?php

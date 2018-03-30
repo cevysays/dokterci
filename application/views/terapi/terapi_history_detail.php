@@ -20,6 +20,11 @@
 		  		<th>:</th>
 		  		<th><?php echo $pasien->namalengkap;?></th>
 		  	</tr>
+		  	<tr>
+		  		<th>Jenis Kelamin</th>
+		  		<th>:</th>
+		  		<th><?php echo $pasien->jenis_kelamin;?></th>
+		  	</tr>
 		  	<tr>	
 		  		<th>Umur</th>
 		  		<th>:</th>
