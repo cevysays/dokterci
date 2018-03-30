@@ -59,7 +59,8 @@
       width: '100%' 
     });
     $('.data-table').dataTable({
-      "ordering":false,
+      // "ordering":false,
+      retrieve: true
     });
   });
 </script>

@@ -9,6 +9,11 @@ class master_diagnosa extends CI_Controller{
 
 	}
 
+    function json() {
+        header('Content-Type: application/json');
+        echo $this->m_masterdiagnosa->json();
+    }
+
 
 	function index($id=null){
 
@@ -25,12 +30,12 @@ class master_diagnosa extends CI_Controller{
 
 		$this->pagination->initialize($config);
 
-		$data['query'] = $this->master_diagnosa->tampil_masterdiagnosa($config['per_page'],$id );
+		//$data['query'] = $this->master_diagnosa->tampil_masterdiagnosa($config['per_page'],$id );
 		$this->uri->segment(3);
 
-		$data['halaman'] = $this->pagination->create_links();
+		//$data['halaman'] = $this->pagination->create_links();
 		$this->load->view('head');
-		$this->load->view('master/diagnosa/index', $data);
+		$this->load->view('master/diagnosa/index');
 		$this->load->view('foot');
 	}
 

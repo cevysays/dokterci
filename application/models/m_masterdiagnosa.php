@@ -5,6 +5,13 @@ class M_masterdiagnosa extends CI_Model{
 		parent::__construct();
 	}
 
+	function json() {
+        $this->datatables->select('diagnosa_id,kode_icd,nama_penyakit');
+        $this->datatables->from('master_diagnosa');
+        $this->datatables->add_column('view', '<a href="world/edit/$1">edit</a> | <a href="world/delete/$1">delete</a>', 'ID');
+        return $this->datatables->generate();
+    }
+
 	function simpan($data){
 		$this->db->insert('master_diagnosa', $data);
 	}
