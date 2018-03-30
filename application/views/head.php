@@ -69,6 +69,14 @@
             type : 'GET'
         },
     });
+
+    $('#master-tindakan').DataTable({
+        "ajax": {
+            url : "<?= site_url() ?>/master_tindakan/get_items",
+            type : 'GET'
+        },
+    });
+
   });
 </script>
 

@@ -9,6 +9,11 @@ class master_tindakan extends CI_Controller{
 
 	}
 
+    function get_items(){
+        
+        return $this->master_tindakan->get_items();
+    }
+
 
 	function index($id=null){
 

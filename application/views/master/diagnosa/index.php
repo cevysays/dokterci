@@ -15,7 +15,7 @@
 	    		<table class="table table-bordered table-hover table-condensed order-table" id="master-diagnosa">
 				<thead>
 					<tr>	 				
-						<th>Kode ICD</th>
+						<th width="12%">Kode ICD</th>
 						<th>Nama Penyakit</th>
 						<th width="15%">Kelola</th>
 					</tr>

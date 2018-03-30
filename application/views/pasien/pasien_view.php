@@ -47,7 +47,7 @@
 
 						</td>
 						<td><?php echo $row->tanggal;?></td>
-						<td><?php echo anchor('pasien/ubah/'.$row->id,'<i class="glyphicon glyphicon-pencil"></i>',array('class'=>'btn btn-sm btn-info', 'title'=>'Ubah Pasien'));?>
+						<td width="12%"><?php echo anchor('pasien/ubah/'.$row->id,'<i class="glyphicon glyphicon-pencil"></i>',array('class'=>'btn btn-sm btn-info', 'title'=>'Ubah Pasien'));?>
 						<?php echo anchor('pasien/hapus/'.$row->id,'<i class="glyphicon glyphicon-trash"></i>',array('class'=>'btn btn-sm btn-danger','title'=>'Hapus Pasien','onclick'=>"return confirm('Yakin mau hapus data ini?')"));?>
 						<?php echo anchor('registrasi/daftar/'.$row->id,'<i class="glyphicon glyphicon-download-alt"></i>',array('class'=>'btn btn-sm btn-success','title'=>'Registrasi Pasien'));?>
 						</td>
