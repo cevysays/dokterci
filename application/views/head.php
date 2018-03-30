@@ -62,6 +62,13 @@
       // "ordering":false,
       retrieve: true
     });
+
+    $('#master-diagnosa').DataTable({
+        "ajax": {
+            url : "<?= site_url() ?>/master_diagnosa/get_items",
+            type : 'GET'
+        },
+    });
   });
 </script>
 

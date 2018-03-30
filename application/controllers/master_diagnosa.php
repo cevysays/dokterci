@@ -9,11 +9,10 @@ class master_diagnosa extends CI_Controller{
 
 	}
 
-    function json() {
-        header('Content-Type: application/json');
-        echo $this->m_masterdiagnosa->json();
+    function get_items(){
+        
+        return $this->master_diagnosa->get_items();
     }
-
 
 	function index($id=null){
 
