@@ -31,7 +31,11 @@
 	</div>
 </form>
 
+<?php if ($query): ?>
 
+<img src="<?php echo base_url();?>assets/img/resep/<?php echo $query->resep; ?>" alt="" width="256" height="auto"/>
+	
+<?php endif ?>
 </div>
 </body>
 </html>

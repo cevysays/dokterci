@@ -174,7 +174,16 @@ function selesai_periksa($data, $noreg){
 
 function simpan_resep($data){
 		$this->db->insert('terapi', $data);
-	}
+}
+
+function tampil_resep($noreg,$idpasien){
+	 $query = $this->db->order_by('id', 'DESC')->limit('1')->get_where('terapi', array(
+	 	'no_reg' => $noreg,
+	 	'no_rm'=>$idpasien,
+	 	'tgl'=>date('Y-m-d'),
+	 ));
+return $query->row();
+}
 
 //end of class
 }	
