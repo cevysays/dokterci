@@ -1,129 +1,3 @@
-<script type="text/javascript">
-
-	$(document).ready(function(){
-
-		$('#simpandiagnosa').click(function(){
-			var diagnosa = $('#formdiagnosa').val();
-			var pasien = $('#pasien').val();
-			var noreg = $('#idreg').val();
-
-			if(diagnosa == ""){
-				$.ajax({
-					success:function(html){
-						$('#notif').html('Silahkan input data diagnosa terlebih dahulu');
-						$('#notif').fadeIn(1000);
-						$('#notif').fadeOut(2500);
-						$('#formdiagnosa').focus();
-					}
-				});
-			}else{
-				$.ajax({
-					url : '<?php echo site_url();?>/terapi/tambahdiagnosa',
-					type : 'POST',
-					data : 'diagnosa='+diagnosa+'&noreg='+noreg+'&pasien='+pasien,
-					beforeSend : function(html){
-						$('#datadiagnosa').html('<center><img src="<?php echo base_url();?>assets/img/loading-gede.gif"></center>');
-						$('#datadiagnosa').fadeIn(2000);
-					},
-					success:function(){
-						$('#datadiagnosa').load('<?php echo site_url();?>/terapi/tampildiagnosa/'+noreg);
-						$('#formdiagnosa').val('');
-					}
-				});
-			}
-		});
-
-
-		$('#simpantindakan').click(function(){
-			var tindakan = $('#formtindakan').val();
-			var pasien = $('#pasien').val();
-			var noreg = $('#idreg').val();
-
-			if(tindakan == ""){
-				$.ajax({
-					success:function(html){
-						$('#notif').html('Silahkan input data tindakan terlebih dahulu');
-						$('#notif').fadeIn(1000);
-						$('#notif').fadeOut(2500);
-						$('#formtindakan').focus();
-					}
-				});
-			}else{
-				$.ajax({
-					url : '<?php echo site_url();?>/terapi/tambahtindakan',
-					type : 'POST',
-					data : 'tindakan='+tindakan+'&noreg='+noreg+'&pasien='+pasien,
-					beforeSend : function(html){
-						$('#datatindakan').html('<center><img src="<?php echo base_url();?>assets/img/loading-gede.gif"></center>');
-						$('#datatindakan').fadeIn(2000);
-					},
-					success:function(){
-						$('#datatindakan').load('<?php echo site_url();?>/terapi/tampiltindakan/'+noreg);
-						$('#formtindakan').val('');
-					}
-				});
-			}
-		});
-
-
-		$('#simpanterapi').click(function(){
-			var obat = $('#formobat').val();
-			var etiket = $('#formetiket').val();
-			var jml = $('#formjml').val();
-			var pasien = $('#pasien').val();
-			var noreg = $('#idreg').val();
-
-			if(obat == "" || etiket == "" || jml == ""){
-				$.ajax({
-					success:function(html){
-						$('#notif').html('Silahkan input data tindakan terlebih dahulu');
-						$('#notif').fadeIn(1000);
-						$('#notif').fadeOut(2500);
-						$('#formtindakan').focus();
-					}
-				});
-
-			}else{
-				$.ajax({
-					url : '<?php echo site_url();?>/terapi/tambahterapi',
-					type : 'POST',
-					data : 'obat='+obat+'&etiket='+etiket+'&jml='+jml+'&noreg='+noreg+'&pasien='+pasien,
-					beforeSend : function(html){
-						$('#dataterapi').html('<center><img src="<?php echo base_url();?>assets/img/loading-gede.gif"></center>');
-						$('#dataterapi').fadeIn(2000);
-					},
-					success:function(){
-						$('#dataterapi').load('<?php echo site_url();?>/terapi/tampilterapi/'+noreg);
-						$('#formobat').val('');
-						$('#formetiket').val('');
-						$('#formjml').val('');
-					}
-				});
-			}
-		});
-
-		var options = {
-			url: function(phrase) {
-				return "<?php echo site_url();?>/terapi/get_diagnosa/" + phrase;
-			},
-			// getValue: function(element) {
-			// 	return element.nama_penyakit;
-			// },
-			getValue : 'nama_penyakit',
-			listLocation: "diagnosa",
-			list: {
-				maxNumberOfElements: 2,
-				match: {
-					enabled: true
-				}
-			}
-		};
-
-		$("#formdiagnosa").easyAutocomplete(options);
-
-	});
-
-</script>
 <div class="container">
 	<div class="row">
 
@@ -250,22 +124,14 @@
 							<div role="tabpanel" class="tab-pane" id="terapi">
 								<table class="table">
 									<tr>
-			  				<!--<th>Nama Obat</th>
-			  				<th>Anjuran Minum (ex: 3X1)</th>
-			  				<th>Jumlah</th>-->
+			  				
 			  				<th>Upload Resep Dokter</th>
 			  			</tr>
 			  			<tr>
-			  				<!--<th><?php echo form_input(array('id'=>'formobat','class'=>'form-control'));?></th>
-			  				<th><?php echo form_input(array('id'=>'formetiket','class'=>'form-control'));?></th>
-			  				<th><?php echo form_input(array('id'=>'formjml','class'=>'form-control'));?></th>
-			  				<th><?php echo form_submit(array('type'=>'button','id'=>'simpanterapi','value'=>'Tambah','class'=>'btn btn-info'));?></th>-->
-
+			  			
 			  				<th>
-			  					<input type="file" class="filestyle" name="resep">
-
+			  					<iframe src="<?= site_url() ?>/frame_resep/index/<?= $this->uri->segment(3); ?>/<?= $this->uri->segment(4); ?>" style="border:none" width="100%"></iframe>
 			  				</th>
-			  				<th><?php echo form_submit(array('type'=>'button','id'=>'resep','value'=>'Upload','class'=>'btn btn-info'));?></th>
 
 			  			</tr>
 			  		</table>
@@ -286,3 +152,137 @@
 
 </div>
 </div>
+<?php ob_start(); ?>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+		$('#simpandiagnosa').click(function(){
+			var diagnosa = $('#formdiagnosa').val();
+			var pasien = $('#pasien').val();
+			var noreg = $('#idreg').val();
+
+			if(diagnosa == ""){
+				$.ajax({
+					success:function(html){
+						$('#notif').html('Silahkan input data diagnosa terlebih dahulu');
+						$('#notif').fadeIn(1000);
+						$('#notif').fadeOut(2500);
+						$('#formdiagnosa').focus();
+					}
+				});
+			}else{
+				$.ajax({
+					url : '<?php echo site_url();?>/terapi/tambahdiagnosa',
+					type : 'POST',
+					data : 'diagnosa='+diagnosa+'&noreg='+noreg+'&pasien='+pasien,
+					beforeSend : function(html){
+						$('#datadiagnosa').html('<center><img src="<?php echo base_url();?>assets/img/loading-gede.gif"></center>');
+						$('#datadiagnosa').fadeIn(2000);
+					},
+					success:function(){
+						$('#datadiagnosa').load('<?php echo site_url();?>/terapi/tampildiagnosa/'+noreg);
+						$('#formdiagnosa').val('');
+					}
+				});
+			}
+		});
+
+
+		$('#simpantindakan').click(function(){
+			var tindakan = $('#formtindakan').val();
+			var pasien = $('#pasien').val();
+			var noreg = $('#idreg').val();
+
+			if(tindakan == ""){
+				$.ajax({
+					success:function(html){
+						$('#notif').html('Silahkan input data tindakan terlebih dahulu');
+						$('#notif').fadeIn(1000);
+						$('#notif').fadeOut(2500);
+						$('#formtindakan').focus();
+					}
+				});
+			}else{
+				$.ajax({
+					url : '<?php echo site_url();?>/terapi/tambahtindakan',
+					type : 'POST',
+					data : 'tindakan='+tindakan+'&noreg='+noreg+'&pasien='+pasien,
+					beforeSend : function(html){
+						$('#datatindakan').html('<center><img src="<?php echo base_url();?>assets/img/loading-gede.gif"></center>');
+						$('#datatindakan').fadeIn(2000);
+					},
+					success:function(){
+						$('#datatindakan').load('<?php echo site_url();?>/terapi/tampiltindakan/'+noreg);
+						$('#formtindakan').val('');
+					}
+				});
+			}
+		});
+
+
+		$('#simpanterapi').click(function(){
+			var obat = $('#formobat').val();
+			var etiket = $('#formetiket').val();
+			var jml = $('#formjml').val();
+			var pasien = $('#pasien').val();
+			var noreg = $('#idreg').val();
+
+			if(obat == "" || etiket == "" || jml == ""){
+				$.ajax({
+					success:function(html){
+						$('#notif').html('Silahkan input data tindakan terlebih dahulu');
+						$('#notif').fadeIn(1000);
+						$('#notif').fadeOut(2500);
+						$('#formtindakan').focus();
+					}
+				});
+
+			}else{
+				$.ajax({
+					url : '<?php echo site_url();?>/terapi/tambahterapi',
+					type : 'POST',
+					data : 'obat='+obat+'&etiket='+etiket+'&jml='+jml+'&noreg='+noreg+'&pasien='+pasien,
+					beforeSend : function(html){
+						$('#dataterapi').html('<center><img src="<?php echo base_url();?>assets/img/loading-gede.gif"></center>');
+						$('#dataterapi').fadeIn(2000);
+					},
+					success:function(){
+						$('#dataterapi').load('<?php echo site_url();?>/terapi/tampilterapi/'+noreg);
+						$('#formobat').val('');
+						$('#formetiket').val('');
+						$('#formjml').val('');
+					}
+				});
+			}
+		});
+
+		var options = {
+			url: function(phrase) {
+				return "<?php echo site_url();?>/terapi/get_diagnosa/" + phrase;
+			},
+			// getValue: function(element) {
+			// 	return element.nama_penyakit;
+			// },
+			getValue : 'nama_penyakit',
+			listLocation: "diagnosa",
+			list: {
+				maxNumberOfElements: 2,
+				match: {
+					enabled: true
+				}
+			}
+		};
+
+		$("#formdiagnosa").easyAutocomplete(options);
+
+	});
+	$(document).on('click', '#resep', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		var formData = new FormData($('#file_resep'));
+		console.log(formData);
+	});
+
+</script>
+<?php ob_end_flush(); ?>

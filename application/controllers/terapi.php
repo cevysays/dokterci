@@ -261,24 +261,32 @@ class Terapi extends CI_Controller{
 
 	 public function uploadgambar(){
 
-	 	$status="test";
-	 	$msg = print_r($_FILES);
+        //disini upload file
+			$this->load->library('upload'); //panggil libary upload
 
-        // $config['upload_path'] = './assets/img/resep/';
-        // $config['allowed_types'] = 'gif|jpg|png';
- 
-        // $this->load->library('upload', $config);
- 
-        // if ( ! $this->upload->do_upload('gambar_resep')){
-        //     $status = "error";
-        //     $msg = $this->upload->display_errors();
-        // }
-        // else{
-        //     $dataupload = $this->upload->data();
-        //     $status = "success";
-        //     $msg = $dataupload['file_name']." berhasil diupload";
-        // }
-        $this->output->set_content_type('application/json')->set_output(json_encode(array('status'=>$status,'msg'=>$msg)));
+			$extension = pathinfo($_FILES['resep']['name'], PATHINFO_EXTENSION);
+
+            $namafile                = "file" .'_'.time().'.'.$extension; //nama file + fungsi time
+            $config['upload_path']   = FCPATH.'assets/img/resep/'; //Folder untuk menyimpan hasil upload
+            $config['allowed_types'] = 'jpg|png|jpeg|bmp|pdf'; //type yang dapat diakses bisa anda sesuaikan
+            $config['file_name']     = $namafile; //nama yang terupload nantinya
+
+            $this->upload->initialize($config); //initialisasi upload dari array config
+            $file_image_poto = $this->upload->data();
+
+            $this->upload->do_upload('resep');
+
+            $data = array(
+            	'resep'=>$file_image_poto['file_name'],
+            	'no_reg'=>$this->input->post('noreg'),
+            	'no_rm'=>$this->input->post('idpasien'),
+            	'tgl'=> date('Y-m-d'),
+            	);
+
+            $this->terapi->simpan_resep($data);
+
+            redirect('frame_resep/index/'.$this->input->post('noreg').'/'.$this->input->post('idpasien'), 'refresh');
+
     }
  
 
