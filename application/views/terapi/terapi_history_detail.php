@@ -55,7 +55,7 @@
 		  			<a href="#tindakan" aria-controls="tindakan" role="tab" data-toggle="tab">Tindakan</a>
 		  		</li>
 		  		<li role="periksa">
-		  			<a href="#terapi" aria-controls="terapi" role="tab" data-toggle="tab">Terapi</a>
+		  			<a href="#terapi" aria-controls="terapi" role="tab" data-toggle="tab">Resep</a>
 		  		</li>
 		  	</ul>
 		  	<div class="tab-content">
@@ -130,9 +130,9 @@
 			  		<table class="table">
 			  			<tr>
 			  				<th>Tanggal</th>
-			  				<th>Nama Obat</th>
-			  				<th>Anjuran Minum Obat (ex: 3X1)</th>
-			  				<th>Jumlah</th>
+			  				<th>Resep Dokter</th>
+			  				<!-- <th>Anjuran Minum Obat (ex: 3X1)</th>
+			  				<th>Jumlah</th> -->
 			  			</tr>
 			  			<?php
 			  				if(empty($terapi)){
@@ -142,9 +142,14 @@
 			  						?>
 			  						<tr>
 			  						  <td><?php echo $rowterapi->tanggal;?></td>	
-							          <td><?php echo $rowterapi->terapi;?></td>
-							          <td><?php echo $rowterapi->etiket;?></td>
-							          <td><?php echo $rowterapi->jml;?></td>
+			  						  <td>
+			  						  	<?php if($rowterapi->resep!=''): ?>
+										<a class="fancyimg" href="<?php echo base_url();?>assets/img/resep/<?php echo $rowterapi->resep;?>"><img src="<?php echo base_url();?>assets/img/resep/<?php echo $rowterapi->resep;?>" alt="" height="50px" width="50px"/></a>
+										<?php endif;?>
+			  						  </td>	
+							          <!-- <td><?php #echo $rowterapi->terapi;?></td>
+							          <td><?php #echo $rowterapi->etiket;?></td>
+							          <td><?php #echo $rowterapi->jml;?></td> -->
         							</tr>
 			  						<?php
 			  						endforeach;
