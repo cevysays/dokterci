@@ -103,6 +103,7 @@ function tampil_tindakan($noreg){
 	return $query->result();
 }
 
+
 function tampil_history_tindakan($pasien){
 	$this->db->select(array(
 		"DATE_FORMAT(registrasi.tgl_reg, '%d-%m-%Y') as tanggal",
@@ -170,6 +171,10 @@ function selesai_periksa($data, $noreg){
 	$this->db->where('no_reg', $noreg);
 	$this->db->update('registrasi', $data);
 }
+
+function simpan_resep($data){
+		$this->db->insert('terapi', $data);
+	}
 
 //end of class
 }	

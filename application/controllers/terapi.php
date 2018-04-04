@@ -261,8 +261,6 @@ class Terapi extends CI_Controller{
 
 	 public function uploadgambar(){
 
-	 	$status="test";
-	 	$msg = print_r($_FILES);
 
         // $config['upload_path'] = './assets/img/resep/';
         // $config['allowed_types'] = 'gif|jpg|png';
@@ -278,7 +276,38 @@ class Terapi extends CI_Controller{
         //     $status = "success";
         //     $msg = $dataupload['file_name']." berhasil diupload";
         // }
-        $this->output->set_content_type('application/json')->set_output(json_encode(array('status'=>$status,'msg'=>$msg)));
+        // $this->output->set_content_type('application/json')->set_output(json_encode(array('status'=>$status,'msg'=>$msg)));
+
+
+        //disini upload file
+			$this->load->library('upload'); //panggil libary upload
+
+			$extension = pathinfo($_FILES['resep']['name'], PATHINFO_EXTENSION);
+
+            $namafile                = "file" .'_'.time().'.'.$extension; //nama file + fungsi time
+            $config['upload_path']   = FCPATH.'assets/img/pasien'; //Folder untuk menyimpan hasil upload
+            $config['allowed_types'] = 'jpg|png|jpeg|bmp|pdf'; //type yang dapat diakses bisa anda sesuaikan
+            $config['max_size']      = '3072'; //maksimum besar file 3M
+            $config['max_width']     = '5000'; //lebar maksimum 5000 px
+            $config['max_height']    = '5000'; //tinggi maksimu 5000 px
+            $config['file_name']     = $namafile; //nama yang terupload nantinya
+
+            $this->upload->initialize($config); //initialisasi upload dari array config
+            $file_image_poto = $this->upload->data();
+
+            $this->upload->do_upload('resep');
+
+            $data = array(
+            	'resep'=>$file_image_poto['file_name'],
+            	'no_reg'=>$this->input->post('noreg'),
+            	'no_rm'=>$this->input->post('idpasien'),
+            	'tgl'=> date('Y-m-d'),
+            	);
+
+            $this->terapi->simpan_resep($data);
+
+            redirect('frame_resep/index/'.$this->input->post('noreg').'/'.$this->input->post('idpasien'), 'refresh');
+
     }
  
 
