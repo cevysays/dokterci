@@ -155,7 +155,7 @@ tr td{
 <br>
 
 <table width="700" border="0" cellspacing="0" cellpadding="0" align="center">
-  <tr><th colspan="4" align="left">Data Terapi</th></tr>
+  <tr><th colspan="4" align="left">Data Resep</th></tr>
   <tr>
     <td width="13"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;"></div></td>
     <!-- <td width="13"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">No</div></td>
