@@ -55,6 +55,11 @@ tr td{
   </tr>
 
   <tr>
+    <td width="91"><span class="style14">Jenis Kelamin </span></td>
+    <td width="151"><span class="style14">: <?php echo $pasien->jenis_kelamin;?></span></td>
+  </tr>
+
+  <tr>
     <td width="91"><span class="style14">Alamat </span></td>
     <td width="151"><span class="style14">: <?php echo $pasien->alamat;?></span></td>
   </tr>
@@ -108,7 +113,7 @@ tr td{
                     <tr>
                         <td><?php echo $no_diagnosa++;?></td>
                         <td><?php echo $rowdiagnosa->tanggal;?></td>
-                        <td><?php echo $rowdiagnosa->diagnosa;?></td>
+                        <td><?php echo $rowdiagnosa->nama_penyakit;?></td>
                       </tr>
                     <?php
                     endforeach;
@@ -138,7 +143,7 @@ tr td{
                     <tr>
                         <td><?php echo $no_tindakan++;?></td>
                         <td><?php echo $rowtindakan->tanggal;?></td>
-                        <td><?php echo $rowtindakan->tindakan;?></td>
+                        <td><?php echo $rowtindakan->nama_tindakan;?></td>
                       </tr>
                     <?php
                     endforeach;
@@ -150,12 +155,13 @@ tr td{
 <br>
 
 <table width="700" border="0" cellspacing="0" cellpadding="0" align="center">
-  <tr><th colspan="4" align="left">Data Terapi</th></tr>
+  <tr><th colspan="4" align="left">Data Resep</th></tr>
   <tr>
-    <td width="13"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">No</div></td>
+    <td width="13"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;"></div></td>
+    <!-- <td width="13"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">No</div></td>
     <td width="179"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">Item</div></td>
     <td width="96"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">Etiket </div></td>
-    <td width="96"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">Jumlah</div></td>
+    <td width="96"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">Jumlah</div></td> -->
      </tr>
   <?php 
   $no = 0;
@@ -163,10 +169,11 @@ tr td{
   $no++;
   ?>
   <tr>
-    <td><div align="center" class="style14"><?php echo $no;?></div></td>
-    <td><div align="center" class="style14"><?php echo $rowterapi->terapi;?></div></td>
-    <td><div align="center" class="style14"><?php echo $rowterapi->etiket;?></div></td>
-    <td><div align="center" class="style14"><?php echo $rowterapi->jml;?></div></td>
+    <td><div align="left" class="style14">Resep dokter dapat dicetak manual</div></td>
+    <!-- <td><div align="center" class="style14"><?php #echo $no;?></div></td>
+    <td><div align="center" class="style14"><?php #echo $rowterapi->terapi;?></div></td>
+    <td><div align="center" class="style14"><?php #echo $rowterapi->etiket;?></div></td>
+    <td><div align="center" class="style14"><?php #echo $rowterapi->jml;?></div></td> -->
   </tr>
   <?php 
   }

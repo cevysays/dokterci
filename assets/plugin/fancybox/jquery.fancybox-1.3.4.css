@@ -15,6 +15,19 @@
  *   http://www.gnu.org/licenses/gpl.html
  */
 
+#fancy_print {
+  /* set proper path for your print image */
+    background: url("assets/img/ic_print_black_48dp/web/ic_print_black_48dp_2x.png") no-repeat scroll left top transparent; 
+    cursor: pointer;
+    width: 58px; /* the size of your print image */
+    height: 60px;
+    left: -15px;
+    position: absolute;
+    top: -12px;
+    z-index: 9999;
+    display: block;
+}
+
 #fancybox-loading {
 	position: fixed;
 	top: 50%;
