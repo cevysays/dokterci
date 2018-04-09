@@ -163,11 +163,11 @@ tr td{
     <td width="96"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">Etiket </div></td>
     <td width="96"><div align="center" class="style14" style="border-top:1px solid #000;border-bottom:1px solid #000;">Jumlah</div></td> -->
      </tr>
-  <?php 
-  $no = 0;
-  foreach($terapi as $rowterapi){
-  $no++;
-  ?>
+  <!-- <?php 
+  #$no = 0;
+  #foreach($terapi as $rowterapi){
+  #$no++;
+  ?> -->
   <tr>
     <td><div align="left" class="style14">Resep dokter dapat dicetak manual</div></td>
     <!-- <td><div align="center" class="style14"><?php #echo $no;?></div></td>
@@ -175,9 +175,9 @@ tr td{
     <td><div align="center" class="style14"><?php #echo $rowterapi->etiket;?></div></td>
     <td><div align="center" class="style14"><?php #echo $rowterapi->jml;?></div></td> -->
   </tr>
-  <?php 
-  }
-  ?>
+ <!--  <?php 
+  // }
+  ?> -->
     
 </table>
 <br />

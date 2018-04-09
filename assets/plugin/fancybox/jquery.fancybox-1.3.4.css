@@ -17,7 +17,9 @@
 
 #fancy_print {
   /* set proper path for your print image */
-    background: url("assets/img/ic_print_black_48dp/web/ic_print_black_48dp_2x.png") no-repeat scroll left top transparent; 
+    background: url("/dokterci/assets/img/ic_print_black_48dp/web/ic_print_black_48dp_2x.png") no-repeat transparent; 
+    background-position: center;
+    background-size: contain;
     cursor: pointer;
     width: 58px; /* the size of your print image */
     height: 60px;

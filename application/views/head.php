@@ -53,12 +53,16 @@
   //   $("a.fancyimg").fancybox();
   // });
 
+  /*
   $(document).ready(function() {
     $("a.fancyimg").fancybox({
-  'onComplete': function(){ // for v2.0.6+ use : 'beforeShow' 
-    var win=null;
-    var content = $('#fancybox-content'); // for v2.x use : var content = $('.fancybox-inner');
+      console.log('testing');
+      'onComplete': function() { // for v2.0.6+ use : 'beforeShow' 
+      var win=null;
+      var content = $('#fancybox-content'); // for v2.x use : var content = $('.fancybox-inner');
+    
     $('#fancybox-outer').append('<div id="fancy_print"></div>'); // for v2.x use : $('.fancybox-wrap').append(...
+    
     $('#fancy_print').bind("click", function(){
       win = window.open("width=200,height=200");
       self.focus();
@@ -75,6 +79,32 @@
   } //onComplete
  }); // fancybox
 }); //  ready
+*/
+  
+  $(document).ready(function() {
+    $('a.fancyimg').fancybox({
+      'onComplete': function() {
+        var win = null;
+        var content = $('#fancybox-content');
+
+        $('#fancybox-outer').append('<div id="fancy_print"></div>');
+
+        $('#fancy_print').bind("click", function(){
+          win = window.open("width=200,height=200");
+          self.focus();
+          win.document.open();
+          win.document.write('<'+'html'+'><'+'head'+'><'+'style'+'>');
+          win.document.write('body, td { font-family: Verdana; font-size: 10pt;}');
+          win.document.write('<'+'/'+'style'+'><'+'/'+'head'+'><'+'body'+'>');
+          win.document.write(content.html());
+          win.document.write('<'+'/'+'body'+'><'+'/'+'html'+'>');
+          win.document.close();
+          win.print();
+          win.close();
+        });
+      }
+    });
+  });
 
 
   //  $(document).ready(function() {
