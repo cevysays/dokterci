@@ -89,7 +89,7 @@
 											</th>
 										</tr>
 										<tr>	
-											<th>Upload Rekamedis</th>
+											<th>Upload Rekam Medis</th>
 											<th>:</th>
 											<th>
 												<input type="file" class="filestyle" name="rm_upload">

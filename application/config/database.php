@@ -50,8 +50,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';//disesuaikan dgn instalasi pd PC anda
-$db['default']['password'] = 'ooal';//disesuaikan dgn instalasi pd PC anda
-$db['default']['database'] = 'dokterci_26Mar2018';
+$db['default']['password'] = '';//disesuaikan dgn instalasi pd PC anda
+$db['default']['database'] = 'dokterci';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

@@ -18,6 +18,7 @@
 								'id'=>'kode_tindakan',
 								'autofocus'=>'autofocus',
 								'required'=>'required',
+								'disabled'=> TRUE,
 								'value' => $query->kode_tindakan));?>
 							</th>
 						</tr>
@@ -30,6 +31,7 @@
 								'id'=>'nama_tindakan',
 								'autofocus'=>'autofocus',
 								'required'=>'required',
+								'disabled'=> TRUE,
 								'value' => $query->nama_tindakan));?>
 							</th>
 						</tr>
