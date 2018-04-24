@@ -71,7 +71,7 @@
 											'name'=>'riwayat', 
 											'class'=>'form-control',
 											'id'=>'riwayat',
-											'required'=>'required',
+											// 'required'=>'required',
 											'rows'=>'5',
 											'value'=>$query->riwayat));?>
 										</th>

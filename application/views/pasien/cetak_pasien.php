@@ -32,7 +32,7 @@ tr td{
   <tr>
     <b><center>LAPORAN HISTORY PEMERIKSAAN DOKTER</center></b>
 
-    <center>Praktik Dokter dr. Hj. Siti Sundari, SpM,. Mkes <br> Jln. Soeradjitirtonegoro No.67, Bendogantungan, Klaten <br> Telp. (0272) 323210 </center><br>
+    <center>Praktik Dokter dr. Hj. Siti Sundari, Sp.M,. M.kes <br> Jln. Soeradjitirtonegoro No.67, Bendogantungan, Klaten <br> Telp. (0272) 323210 </center><br>
     <!--<?php echo "<center>Oleh : ".$this->session->userdata('namalengkap')."</center>";?><br>-->
     <td style="border-bottom:solid 1px #000000"><span class="style2"> 
     </span></td>
@@ -40,7 +40,7 @@ tr td{
 </table><br />
 
     <!--<div class="title" align='center'>
-      <?php echo "<center>PRAKTIK DOKTER dr. Hj. Siti Sundari, SpM,. Mkes</center>";?><br>
+      <?php echo "<center>PRAKTIK DOKTER dr. Hj. Siti Sundari, Sp.M,. M.kes</center>";?><br>
       <?php echo "Jln. Soeradjitirtonegoro No.67, Bendogantungan, Klaten";?><br>
       <?php echo "Telp. (0272) 323210";?> <br>
       <br>

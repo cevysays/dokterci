@@ -29,7 +29,7 @@ tr td{
 	<body onload="window.print()">
 		
     <div class="title" align="center">
-      <?php echo "<center>PRAKTIK DOKTER dr. Hj. Siti Sundari, SpM,. Mkes</center>";?><br>
+      <?php echo "<center>PRAKTIK DOKTER dr. Hj. Siti Sundari, Sp.M,. M.kes</center>";?><br>
       <?php echo "Jln. Soeradjitirtonegoro No.67, Bendogantungan, Klaten";?><br>
       <?php echo "Telp. (0272) 323210";?> <br>
       <br>

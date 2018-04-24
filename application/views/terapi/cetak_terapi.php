@@ -30,7 +30,7 @@ tr td{
   <tr>
     <?php echo "<b><center>LAPORAN PEMERIKSAAN DOKTER</center></b>
 
-    <center>Praktik Dokter dr. Hj. Siti Sundari, SpM,. Mkes <br> Jln. Soeradjitirtonegoro No.67, Bendogantungan, Klaten <br> Telp. (0272) 323210 </center>";?><hr>
+    <center>Praktik Dokter dr. Hj. Siti Sundari, Sp.M,. M.kes <br> Jln. Soeradjitirtonegoro No.67, Bendogantungan, Klaten <br> Telp. (0272) 323210 </center>";?><hr>
     <td style="border-bottom:solid 1px #000000"><span class="style2">
     <p style="float:left;"><?php echo "Petugas : ".$this->session->userdata('namalengkap')?></p>
     <p style="float:right;">Diperiksa oleh : <?php echo $dokter->namalengkap; ?></p>

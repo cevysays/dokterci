@@ -10,7 +10,7 @@
          <div class="media-body">
           <h2 class="media-heading" align="center">Selamat datang, <?php echo $this->session->userdata('namalengkap');?></h2>
           <h2 align="center">Sistem Informasi</h2>
-          <h2 align="center">Praktik Dokter dr. Hj. Siti Sundari, SpM,. Mkes</h2>
+          <h2 align="center">Praktik Dokter dr. Hj. Siti Sundari, Sp.M,. M.kes</h2>
           <h4 align="center">Jln. Soeradjitirtonegoro No.67, Bendogantungan, Klaten</h4>
         </div>
       </div>
@@ -19,7 +19,7 @@
               <h2>
                 <p align="center">Selamat datang, <?php echo $this->session->userdata('namalengkap');?></p> 
                 <p align="center">SISTEM INFORMASI PRAKTIK DOKTER  </p>
-                <p align="center">dr. Hj. Siti Sundari, SpM,. Mkes  </p>
+                <p align="center">dr. Hj. Siti Sundari, Sp.M,. M.kes  </p>
               </h2>
             </blockquote>-->
           </div>

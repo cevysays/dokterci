@@ -65,16 +65,13 @@ class Pasien extends CI_Controller{
 			$tgl = date('Y-m-d H:i:s');
 
 			//disini upload file
-			$this->load->library('upload'); //panggil libary upload
+            $this->load->library('upload'); //panggil libary upload
 
-			$extension = pathinfo($_FILES['rm_upload']['name'], PATHINFO_EXTENSION);
+            $extension = pathinfo($_FILES['rm_upload']['name'], PATHINFO_EXTENSION);
 
-            $namafile                = "file_" . $nama.'_'.time().'.'.$extension; //nama file + fungsi time
-            $config['upload_path']   = FCPATH.'assets/img/pasien'; //Folder untuk menyimpan hasil upload
+            $namafile                = "file" .'_'.time().'.'.$extension; //nama file + fungsi time
+            $config['upload_path']   = FCPATH.'assets/img/pasien/'; //Folder untuk menyimpan hasil upload
             $config['allowed_types'] = 'jpg|png|jpeg|bmp|pdf'; //type yang dapat diakses bisa anda sesuaikan
-            $config['max_size']      = '3072'; //maksimum besar file 3M
-            $config['max_width']     = '5000'; //lebar maksimum 5000 px
-            $config['max_height']    = '5000'; //tinggi maksimu 5000 px
             $config['file_name']     = $namafile; //nama yang terupload nantinya
 
             $this->upload->initialize($config); //initialisasi upload dari array config
@@ -122,14 +119,10 @@ class Pasien extends CI_Controller{
             $this->load->library('upload'); //panggil libary upload
 
             $extension = pathinfo($_FILES['rm_upload']['name'], PATHINFO_EXTENSION);
-            
 
-            $namafile                = "file_" . $nama.'_'.time().'.'.$extension; //nama file + fungsi time
-            $config['upload_path']   = FCPATH.'assets/img/pasien'; //Folder untuk menyimpan hasil upload
+            $namafile                = "file" .'_'.time().'.'.$extension; //nama file + fungsi time
+            $config['upload_path']   = FCPATH.'assets/img/pasien/'; //Folder untuk menyimpan hasil upload
             $config['allowed_types'] = 'jpg|png|jpeg|bmp|pdf'; //type yang dapat diakses bisa anda sesuaikan
-            $config['max_size']      = '3072'; //maksimum besar file 3M
-            $config['max_width']     = '5000'; //lebar maksimum 5000 px
-            $config['max_height']    = '5000'; //tinggi maksimu 5000 px
             $config['file_name']     = $namafile; //nama yang terupload nantinya
 
             $this->upload->initialize($config); //initialisasi upload dari array config
